@@ -113,6 +113,7 @@ public class ViewMenuServicios extends JPanel {
 	}
 	
 	public ViewMenuServicios(TestGUIAmbulancias ventanaPrincipal) {
+		setBackground(Color.WHITE);
 
 		this.ventanaPrincipal = ventanaPrincipal;
 		this.controller = new Controller(this.ventanaPrincipal);
