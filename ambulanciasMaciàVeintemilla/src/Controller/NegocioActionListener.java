@@ -15,7 +15,6 @@ public class NegocioActionListener implements ActionListener{
 		this.ventanaPrincipal = ventanaPrincipal;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getActionCommand().equals("Salvar datos del Sistema")) {

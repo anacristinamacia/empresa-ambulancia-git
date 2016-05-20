@@ -21,7 +21,6 @@ public class OpenFileActionListener implements ActionListener{
 		this.ventanaPrincipal = ventanaPrincipal;
 	}
 	
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		boolean result;
 		JFileChooser filechooser = new JFileChooser();

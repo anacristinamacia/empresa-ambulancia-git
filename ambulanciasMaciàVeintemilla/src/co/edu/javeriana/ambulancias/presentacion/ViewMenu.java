@@ -1,31 +1,18 @@
 package co.edu.javeriana.ambulancias.presentacion;
 
-import java.awt.Graphics;
-import java.io.File;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
 import javax.swing.JPanel;
-
-import com.sun.javafx.geom.Rectangle;
+import javax.swing.JTextArea;
 
 import Controller.Controller;
 import co.edu.javeriana.ambulancias.negocio.IServiciosAmbulancias;
-
-import java.awt.Color;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
-import javax.swing.JTextArea;
-import java.awt.Component;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.DropMode;
 
 public class ViewMenu extends JPanel {
 
