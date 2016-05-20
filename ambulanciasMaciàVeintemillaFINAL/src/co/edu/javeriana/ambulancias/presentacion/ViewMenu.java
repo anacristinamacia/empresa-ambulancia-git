@@ -335,7 +335,7 @@ public class ViewMenu extends JPanel {
 		panel_4.add(btnCargarDatos);
 		
 		JButton btnSalvarDatos = new JButton("Salvar datos del Sistema");
-		btnSalvarDatos.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Save.png"));
+		btnSalvarDatos.setIcon(new ImageIcon(ViewMenu.class.getResource("/Iconos/Actualizar.png")));
 		btnSalvarDatos.setForeground(Color.WHITE);
 		btnSalvarDatos.setBackground(Color.DARK_GRAY);
 		btnSalvarDatos.setOpaque(true);

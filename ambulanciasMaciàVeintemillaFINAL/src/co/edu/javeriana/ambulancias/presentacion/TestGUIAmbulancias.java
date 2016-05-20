@@ -16,6 +16,7 @@ import Controller.Controller;
 import co.edu.javeriana.ambulancias.negocio.EmpresaAmbulancias;
 import co.edu.javeriana.ambulancias.negocio.IServiciosAmbulancias;
 import co.edu.javeriana.ambulancias.persistencia.ManejoArchivos;
+import java.awt.Color;
 
 
 public class TestGUIAmbulancias extends JFrame {
@@ -126,16 +127,20 @@ public class TestGUIAmbulancias extends JFrame {
 		contentPane.add(tabbedPane);
 		
 		viewMenu = new ViewMenu(this);
-		tabbedPane.addTab("Menú", new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/List.png"), viewMenu, null);
+		viewMenu.setBackground(Color.WHITE);
+		tabbedPane.addTab("Menú", new ImageIcon(TestGUIAmbulancias.class.getResource("/Iconos/List.png")), viewMenu, null);
 		
 		viewAmbulancias = new ViewAmbulancias(this);
-		tabbedPane.addTab("Ambulancias", new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Emergency_off.png"), viewAmbulancias, null);
+		viewAmbulancias.setBackground(Color.WHITE);
+		tabbedPane.addTab("Ambulancias", new ImageIcon(TestGUIAmbulancias.class.getResource("/Iconos/Men£Ambulancia.png")), viewAmbulancias, null);
 		
 		viewIPS = new ViewIPS(this);
-		tabbedPane.addTab("IPS", new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/redcross.png"), viewIPS, null);
+		viewIPS.setBackground(Color.WHITE);
+		tabbedPane.addTab("IPS", new ImageIcon(TestGUIAmbulancias.class.getResource("/Iconos/Medical_products_medicine.png")), viewIPS, null);
 		
 		viewServicios = new ViewServicios(this);
-		tabbedPane.addTab("Servicios", new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/sign-in.png"), viewServicios, null);
+		viewServicios.setBackground(Color.WHITE);
+		tabbedPane.addTab("Servicios", new ImageIcon(TestGUIAmbulancias.class.getResource("/Iconos/Men£Serv.png")), viewServicios, null);
 		
 		
 	}
