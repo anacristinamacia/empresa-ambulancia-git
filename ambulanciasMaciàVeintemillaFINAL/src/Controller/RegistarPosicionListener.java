@@ -20,8 +20,10 @@ public class RegistarPosicionListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		
-		if (source.equals(ventanaPrincipal.getViewAmbulancias().getViewRegistrarPosicion().getBtnActualizar())) {
-			
+		if (e.getActionCommand().equals("Actualizar")) {
+			System.out.println("Actualizo1");
+			actualizarAmbulancias();
+			System.out.println("Actualizo");
 		}
 		
 	}

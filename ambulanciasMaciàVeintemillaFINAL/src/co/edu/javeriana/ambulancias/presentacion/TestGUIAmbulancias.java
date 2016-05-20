@@ -42,6 +42,7 @@ public class TestGUIAmbulancias extends JFrame {
 				try {
 					TestGUIAmbulancias frame = new TestGUIAmbulancias();
 					frame.setVisible(true);
+					System.out.println("Hello");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

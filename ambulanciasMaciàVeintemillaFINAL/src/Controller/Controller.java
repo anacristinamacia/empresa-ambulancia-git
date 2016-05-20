@@ -47,9 +47,11 @@ public class Controller {
 		super();
 		this.ventanaPrincipal = ventanaPrincipal;
 		this.negocio = new NegocioActionListener(ventanaPrincipal);
+		System.out.println("negocioo");
 		this.movePanel = new MovePanelActionListener(ventanaPrincipal);
 		this.openFile = new OpenFileActionListener(ventanaPrincipal);
 		this.registrarPosicion = new RegistarPosicionListener(ventanaPrincipal);
+		System.out.println("controller creado");
 	}
 	
 	

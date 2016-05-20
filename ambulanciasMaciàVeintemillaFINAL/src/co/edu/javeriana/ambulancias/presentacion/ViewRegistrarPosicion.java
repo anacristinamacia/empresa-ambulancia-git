@@ -8,6 +8,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+
+import Controller.Controller;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -20,6 +23,7 @@ public class ViewRegistrarPosicion extends JPanel {
 	private String [] lablesAmbulancia = {"Codigo", "Tipo","Placa", "Medico/Enfermero","Tipo UCI", "Hora Posicion","Calle", "Carrera"};
 	private String [][] contAmbulancias = {};
 	private TestGUIAmbulancias ventanaPrincipal;
+	private Controller controller;
 
 	/**
 	 * Create the panel.
@@ -28,12 +32,13 @@ public class ViewRegistrarPosicion extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		
 		this.ventanaPrincipal = ventanaPrincipal;
+		this.controller = new Controller(this.ventanaPrincipal);
 		
 		panelSur = new JPanel();
 		panelSur.setLayout(new FlowLayout());
 		btnRegistrar = new JButton("Registrar");
 		btnActualizar = new JButton("Actualizar");
-		btnActualizar.addActionListener(ventanaPrincipal.getController().getRegistrarPosicion());
+		btnActualizar.addActionListener(this.controller.getRegistrarPosicion());
 		panelSur.add(btnRegistrar);
 		panelSur.add(btnActualizar);
 		add(panelSur, BorderLayout.SOUTH);
