@@ -1,9 +1,8 @@
 package co.edu.javeriana.ambulancias.negocio;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedHashMap;
+
+import co.edu.javeriana.ambulancias.anumerados.TipoDireccion;
 /**
  * Interfaz implementada por EmpresaAmbulancias
  * 
@@ -12,12 +11,12 @@ import java.util.LinkedHashMap;
  */
 public interface IServiciosAmbulancias {
 
-	public void agregarIPS(String nombre, String tipoAtencion, String tipoDireccion, int calle, int carrera, int numero);
+	public void agregarIPS(String nombre, String tipoAtencion, TipoDireccion tipoDireccion, int calle, int carrera, int numero);
 	public void agregarAmbulanciaBasica (int codigo, String placa, String medico);
 	public void agregarAmbulanciaUCI (int codigo, String placa, String medico, String tipoUCI);
 	public void agregarAmbulanciaNoMedicalizada (int codigo, String placa, String enfermero);
 	public boolean registrarPosicionAmbulancia(int codigo, Date hora, int posicionCalle, int posicionCarrera);
-	public long registrarServicio(String paciente, String tipoServicio, String telefono, String tipoDireccion, int calle, int carrera, int numero);
+	public long registrarServicio(String paciente, String tipoServicio, String telefono, TipoDireccion tipoDireccion, int calle, int carrera, int numero);
 	public String asignarServicio(int codigoServicio);
 	public boolean finalizarServicio(int codigoServicio);
 	public boolean buscarAlgunoPosicion();

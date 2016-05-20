@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import co.edu.javeriana.ambulancias.anumerados.TipoDireccion;
+
 public class Servicio implements Serializable{
 
 	private static long CONSECUTIVO = 1;
@@ -176,7 +178,7 @@ public class Servicio implements Serializable{
 	 * @param numero Recibe un in y se lo otorga al atributo numero
 	 */
 	public Servicio(Date horaSolicitud, String paciente, String tipoServicio,
-			String telefono, String estado, String tipoDireccion, int calle, int carrera, int numero) {
+			String telefono, String estado, TipoDireccion tipoDireccion, int calle, int carrera, int numero) {
 		this.codigo = CONSECUTIVO++;
 		this.horaSolicitud = horaSolicitud;
 		this.paciente = paciente;

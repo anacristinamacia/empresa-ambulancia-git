@@ -42,10 +42,10 @@ public class TestAmbulancia {
 			}
 			switch (opcion) {
 			case 1:
-				ManejoArchivos.agregarTxtIPS(empresaAmbulancias);
+				//ManejoArchivos.agregarTxtIPS(empresaAmbulancias);
 				break;
 			case 2:
-				ManejoArchivos.agregarTxtAmbulancia(empresaAmbulancias);
+				//ManejoArchivos.agregarTxtAmbulancia(empresaAmbulancias);
 				break;
 			case 3:
 				int codigo = 0, calle = 0, carrera = 0;
@@ -86,7 +86,7 @@ public class TestAmbulancia {
 				carrera2 = scn.nextInt();
 				System.out.println("Indique el Numero: ");
 				numero = scn.nextInt();
-				System.out.println("El nuevo Servicio tiene codigo: " + empresaAmbulancias.registrarServicio(paciente, tipoServicio, telefono, tipoDireccion, calle2, carrera2, numero));
+				//System.out.println("El nuevo Servicio tiene codigo: " + empresaAmbulancias.registrarServicio(paciente, tipoServicio, telefono, tipoDireccion, calle2, carrera2, numero));
 				break;
 			case 5:
 				if (empresaAmbulancias.buscarAlgunoPosicion()) {

@@ -14,7 +14,6 @@ import javax.swing.JTextArea;
 import Controller.Controller;
 
 public class ViewMenuIPS extends JPanel {
-
 	private JButton btnIngresarIps;
 	private JPanel panel_1;
 	private JPanel panel_2;
@@ -116,7 +115,7 @@ public class ViewMenuIPS extends JPanel {
 		txtrMenIps.setEditable(false);
 		txtrMenIps.setForeground(new Color(0, 0, 128));
 		txtrMenIps.setFont(new Font("Lucida Grande", Font.PLAIN, 19));
-		txtrMenIps.setText("                MEN‚ÅÑ IPS");
+		txtrMenIps.setText("                MEN⁄ IPS");
 		panel_4.add(txtrMenIps);
 		
 		btnIngresarIps = new JButton("Ingresar IPS ");

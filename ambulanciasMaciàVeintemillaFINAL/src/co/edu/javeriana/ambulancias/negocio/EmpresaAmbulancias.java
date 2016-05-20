@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import co.edu.javeriana.ambulancias.anumerados.TipoDireccion;
 import co.edu.javeriana.ambulancias.presentacion.Utils;
 
 public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
@@ -176,7 +177,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	 * @param carrera atributo de la direccion de la ips
 	 * @param numero atributo de la direccion de la ips
 	 */
-	public void agregarIPS (String nombre, String tipoAtencion, String tipoDireccion, int calle, int carrera, int numero) {
+	public void agregarIPS (String nombre, String tipoAtencion, TipoDireccion tipoDireccion, int calle, int carrera, int numero) {
 		Direccion direccion = new Direccion(tipoDireccion, calle, carrera, numero);
 		IPS ips = new IPS (nombre, tipoAtencion, direccion);
 		losIPS.put(nombre, ips);
@@ -242,7 +243,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	 * @param numero Recibe un int que corresponde a la numero que se requiere en el constructor de Servicio
 	 * @return Retorna el codigo el cual le fue asignado al servicio
 	 */
-	public long registrarServicio (String paciente, String tipoServicio, String telefono, String tipoDireccion, int calle, int carrera, int numero) {
+	public long registrarServicio (String paciente, String tipoServicio, String telefono, TipoDireccion tipoDireccion, int calle, int carrera, int numero) {
 		Date horaSolicitud = Utils.manejoFechas();
 		Servicio servicio = new Servicio(horaSolicitud, paciente, tipoServicio, telefono, "NO_ASIGNADO", tipoDireccion, calle, carrera, numero);
 		servicios.add(servicio);
@@ -306,11 +307,11 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 			System.out.println("----------------------------------------------------------------------------------------------------");
 			System.out.print(key);
 			System.out.print("\t" + sorted.get(key).getTipoAtencion());
-			if (sorted.get(key).getDireccion().getTipoDireccion().compareTo("CALLE") == 0) {
-				System.out.println("\t\t" + sorted.get(key).getDireccion().getTipoDireccion() + " " + sorted.get(key).getDireccion().getCalle() + "#" + sorted.get(key).getDireccion().getCarrera() + "-" + sorted.get(key).getDireccion().getNumero());
+			if (sorted.get(key).getDireccion().getTipoDireccion()== sorted.get(key).getDireccion().getTipoDireccion().CALLE) {
+				System.out.println("\t\t" + "CALLE" + " " + sorted.get(key).getDireccion().getCalle() + "#" + sorted.get(key).getDireccion().getCarrera() + "-" + sorted.get(key).getDireccion().getNumero());
 			}
 			else
-				System.out.println("\t\t" + sorted.get(key).getDireccion().getTipoDireccion() + " " + sorted.get(key).getDireccion().getCarrera() + "#" + sorted.get(key).getDireccion().getCalle() + "-" + sorted.get(key).getDireccion().getNumero());
+				System.out.println("\t\t" + "CARRERA" + " " + sorted.get(key).getDireccion().getCarrera() + "#" + sorted.get(key).getDireccion().getCalle() + "-" + sorted.get(key).getDireccion().getNumero());
 			System.out.println();
 			if (!sorted.get(key).getListaServicios().isEmpty()) {
 				System.out.println("\tSERVICIOS:");
@@ -323,7 +324,12 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 					System.out.print(sorted.get(key).getListaServicios().get(j).getPaciente() + "\t");
 					System.out.print(sorted.get(key).getListaServicios().get(j).getTipoServicio() + "\t");
 					System.out.print(sorted.get(key).getListaServicios().get(j).getTelefono() + "\t\t");
-					System.out.print(sorted.get(key).getListaServicios().get(j).getDireccion().getTipoDireccion() + sorted.get(key).getListaServicios().get(j).getDireccion().getCalle() + " # " + sorted.get(key).getListaServicios().get(j).getDireccion().getCarrera() + " - " + sorted.get(key).getListaServicios().get(j).getDireccion().getNumero() + "\t");
+					if (sorted.get(key).getDireccion().getTipoDireccion() == sorted.get(key).getDireccion().getTipoDireccion().CALLE) {
+						System.out.print("CALLE");
+					}else{
+						System.out.print("CARRERA");
+					}
+					System.out.print(sorted.get(key).getListaServicios().get(j).getDireccion().getCalle() + " # " + sorted.get(key).getListaServicios().get(j).getDireccion().getCarrera() + " - " + sorted.get(key).getListaServicios().get(j).getDireccion().getNumero() + "\t");
 					System.out.print(sorted.get(key).getListaServicios().get(j).getEstado() + "\t");
 					System.out.println(sorted.get(key).getListaServicios().get(j).getAmbulancia().getCodigo());
 				}
@@ -352,11 +358,11 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 			System.out.print(servicios.get(i).getPaciente() + "\t\t");
 			System.out.print(servicios.get(i).getTipoServicio() + "\t");
 			System.out.print(servicios.get(i).getTelefono() + "\t\t");
-			if (servicios.get(i).getDireccion().getTipoDireccion().compareTo("CALLE") == 0) {
-				System.out.print(servicios.get(i).getDireccion().getTipoDireccion() + " " + servicios.get(i).getDireccion().getCalle() + "#" + servicios.get(i).getDireccion().getCarrera() + "-" + servicios.get(i).getDireccion().getNumero() + "\t\t");
+			if (servicios.get(i).getDireccion().getTipoDireccion() == servicios.get(i).getDireccion().getTipoDireccion().CALLE){
+				System.out.print("CALLE " + servicios.get(i).getDireccion().getCalle() + "#" + servicios.get(i).getDireccion().getCarrera() + "-" + servicios.get(i).getDireccion().getNumero() + "\t\t");
 			}
 			else
-				System.out.print(servicios.get(i).getDireccion().getTipoDireccion() + " " + servicios.get(i).getDireccion().getCarrera() + "#" + servicios.get(i).getDireccion().getCalle() + "-" + servicios.get(i).getDireccion().getNumero() + "\t\t");
+				System.out.print("CARRERA " + servicios.get(i).getDireccion().getCarrera() + "#" + servicios.get(i).getDireccion().getCalle() + "-" + servicios.get(i).getDireccion().getNumero() + "\t\t");
 			System.out.print(servicios.get(i).getEstado() + "\t");
 				
 			if (servicios.get(i).getEstado().compareTo("ASIGNADO") == 0 || servicios.get(i).getEstado().compareTo("FINALIZADO") == 0) {
@@ -367,11 +373,11 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 					System.out.println("\t----------------------------------------------------------------------------------------------------------------");
 					System.out.print("\t" + servicios.get(i).getIps().getNombre() + "\t");
 					System.out.print(servicios.get(i).getIps().getTipoAtencion() + "\t");
-					if (servicios.get(i).getIps().getDireccion().getTipoDireccion().compareTo("CALLE") == 0) {
-						System.out.println(servicios.get(i).getIps().getDireccion().getTipoDireccion() + " " + servicios.get(i).getIps().getDireccion().getCalle() + "#" + servicios.get(i).getIps().getDireccion().getCarrera() + "-" + servicios.get(i).getIps().getDireccion().getNumero());
+					if (servicios.get(i).getIps().getDireccion().getTipoDireccion() == servicios.get(i).getIps().getDireccion().getTipoDireccion().CALLE) {
+						System.out.println("CALLE " + servicios.get(i).getIps().getDireccion().getCalle() + "#" + servicios.get(i).getIps().getDireccion().getCarrera() + "-" + servicios.get(i).getIps().getDireccion().getNumero());
 					}
 					else 
-						System.out.println(servicios.get(i).getIps().getDireccion().getTipoDireccion() + " " + servicios.get(i).getIps().getDireccion().getCarrera() + "#" + servicios.get(i).getIps().getDireccion().getCalle() + "-" + servicios.get(i).getIps().getDireccion().getNumero());
+						System.out.println("CARRERA " + servicios.get(i).getIps().getDireccion().getCarrera() + "#" + servicios.get(i).getIps().getDireccion().getCalle() + "-" + servicios.get(i).getIps().getDireccion().getNumero());
 				}
 				
 				System.out.println("\tAmbulancia asignada:");
@@ -424,11 +430,11 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 					System.out.print(servicios.get(i).getPaciente() + "\t\t");
 					System.out.print(servicios.get(i).getTipoServicio() + "\t");
 					System.out.print(servicios.get(i).getTelefono() + "\t\t");
-					if (servicios.get(i).getDireccion().getTipoDireccion().compareTo("CALLE") == 0) {
-						System.out.println(servicios.get(i).getDireccion().getTipoDireccion() + " " + servicios.get(i).getDireccion().getCalle() + "#" + servicios.get(i).getDireccion().getCarrera() + "-" + servicios.get(i).getDireccion().getNumero());
+					if (servicios.get(i).getDireccion().getTipoDireccion() == servicios.get(i).getDireccion().getTipoDireccion().CALLE) {
+						System.out.println("CALLE " + servicios.get(i).getDireccion().getCalle() + "#" + servicios.get(i).getDireccion().getCarrera() + "-" + servicios.get(i).getDireccion().getNumero());
 					}
 					else {
-						System.out.println(servicios.get(i).getDireccion().getTipoDireccion() + " " + servicios.get(i).getDireccion().getCarrera() + "#" + servicios.get(i).getDireccion().getCalle() + "-" + servicios.get(i).getDireccion().getNumero());
+						System.out.println("CARRERA " + servicios.get(i).getDireccion().getCarrera() + "#" + servicios.get(i).getDireccion().getCalle() + "-" + servicios.get(i).getDireccion().getNumero());
 					}
 					
 				}
@@ -485,11 +491,11 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 				System.out.print(servicios.get(i).getPaciente() + "\t\t");
 				System.out.print(servicios.get(i).getTipoServicio() + "\t");
 				System.out.print(servicios.get(i).getTelefono() + "\t\t");
-				if (servicios.get(i).getDireccion().getTipoDireccion().compareTo("CALLE") == 0) {
-					System.out.print(servicios.get(i).getDireccion().getTipoDireccion() + " " + servicios.get(i).getDireccion().getCalle() + "#" + servicios.get(i).getDireccion().getCarrera() + "-" + servicios.get(i).getDireccion().getNumero() + "\t");
+				if (servicios.get(i).getDireccion().getTipoDireccion() == servicios.get(i).getDireccion().getTipoDireccion().CALLE) {
+					System.out.print("CALLE " + servicios.get(i).getDireccion().getCalle() + "#" + servicios.get(i).getDireccion().getCarrera() + "-" + servicios.get(i).getDireccion().getNumero() + "\t");
 				}
 				else {
-					System.out.print(servicios.get(i).getDireccion().getTipoDireccion() + " " + servicios.get(i).getDireccion().getCarrera() + "#" + servicios.get(i).getDireccion().getCalle() + "-" + servicios.get(i).getDireccion().getNumero() + "\t");
+					System.out.print("CARRERA " + servicios.get(i).getDireccion().getCarrera() + "#" + servicios.get(i).getDireccion().getCalle() + "-" + servicios.get(i).getDireccion().getNumero() + "\t");
 				}
 				System.out.print(servicios.get(i).getEstado() + "\t");
 				if (servicios.get(i).getEstado().compareTo("ASIGNADO") == 0 || servicios.get(i).getEstado().compareTo("FINALIZADO") == 0) {
@@ -792,7 +798,6 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 		}
 		return false;
 	}
-	
 	// Method colaboration with Juan Pablo Penaloza 
 	
 	public String [][] getModelAmbulancias () {

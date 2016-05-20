@@ -2,9 +2,11 @@ package co.edu.javeriana.ambulancias.negocio;
 
 import java.io.Serializable;
 
+import co.edu.javeriana.ambulancias.anumerados.TipoDireccion;
+
 public class Direccion implements Serializable{
 
-	private String tipoDireccion;
+	private TipoDireccion tipoDireccion;
 	private int calle;
 	private int carrera;
 	private int numero;
@@ -14,14 +16,14 @@ public class Direccion implements Serializable{
 	 * Accede al atributo de tipo String tipoDireccion
 	 * @return Retorna el valor de tipoDireccion
 	 */
-	public String getTipoDireccion() {
+	public TipoDireccion getTipoDireccion() {
 		return tipoDireccion;
 	}
 	/**
 	 * Le otorga un valor al atributo tipoDireccion
 	 * @param tipoDireccion Recibe un String y se lo otorga al atributo
 	 */
-	public void setTipoDireccion(String tipoDireccion) {
+	public void setTipoDireccion(TipoDireccion tipoDireccion) {
 		this.tipoDireccion = tipoDireccion;
 	}
 	/**
@@ -75,7 +77,7 @@ public class Direccion implements Serializable{
 	 * @param carrera Recibe un numero entero y se lo otorga a carrera
 	 * @param numero Recibe un numero entero y se lo otorga a numero
 	 */
-	public Direccion(String tipoDireccion, int calle, int carrera, int numero) {
+	public Direccion(TipoDireccion tipoDireccion, int calle, int carrera, int numero) {
 		this.tipoDireccion = tipoDireccion;
 		this.calle = calle;
 		this.carrera = carrera;

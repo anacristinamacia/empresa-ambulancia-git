@@ -34,7 +34,7 @@ public class ViewAmbulancias extends JPanel {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		add(tabbedPane, BorderLayout.NORTH);
 		
-		viewMenuAmbulancias = new ViewMenuAmbulancias();
+		viewMenuAmbulancias = new ViewMenuAmbulancias(this.ventanaPrincipal);
 		tabbedPane.addTab("Menú Ambulancias", null, viewMenuAmbulancias, null);
 		
 		viewIngresarAmbulancias = new ViewIngresarAmbulancias();

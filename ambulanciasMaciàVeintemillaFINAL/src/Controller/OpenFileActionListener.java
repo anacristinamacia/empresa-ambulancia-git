@@ -23,6 +23,7 @@ public class OpenFileActionListener implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		boolean result;
+		Object obj = e.getSource();
 		JFileChooser filechooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT file", "txt");
 		filechooser.setFileFilter(filter);
@@ -32,10 +33,10 @@ public class OpenFileActionListener implements ActionListener{
 			File file = filechooser.getSelectedFile();
 			//------------------------------------------------------------------------
 			//invoca la logica de negocio que carga el archivo de productos
-			if(e.equals(ventanaPrincipal.getViewIPS().getViewMenuIPS().getBtnIngresarIps())){
-				result = ManejoArchivos.agregarTxtIPS(ventanaPrincipal.getEmpresaAmbulancias());
+			if(obj.equals(ventanaPrincipal.getViewIPS().getViewMenuIPS().getBtnIngresarIps())){
+				result = ManejoArchivos.agregarTxtIPS(ventanaPrincipal.getEmpresaAmbulancias(), file);
 			}else{
-				result = ManejoArchivos.agregarTxtAmbulancia(ventanaPrincipal.getEmpresaAmbulancias());
+				result = ManejoArchivos.agregarTxtAmbulancia(ventanaPrincipal.getEmpresaAmbulancias(), file);
 			}
 			
 			//------------------------------------------------------------------------

@@ -11,9 +11,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import co.edu.javeriana.ambulancias.anumerados.TipoDireccion;
 import co.edu.javeriana.ambulancias.negocio.EmpresaAmbulancias;
 import co.edu.javeriana.ambulancias.negocio.IServiciosAmbulancias;
 
@@ -23,20 +23,16 @@ public class ManejoArchivos {
 	 * empresaAmbulancias.agregarIPS  con la informacion adecuada
 	 * @param empresaAmbulancias Recibe un objeto de tipo IServiciosAmbulancias empresaAmbulancias para poder acceder a los metodos
 	 */
-	public static boolean agregarTxtIPS (IServiciosAmbulancias empresaAmbulancias) {
+	public static boolean agregarTxtIPS (IServiciosAmbulancias empresaAmbulancias, File file) {
 		String nombre;
 		String tipoAtencion;
-		String tipoDireccion;
+		String tipoDir;
+		TipoDireccion tipoDireccion;
 		int calle;
 		int carrera;
 		int numero;
-		String nombreArchivo;
-		Scanner scn = new Scanner(System.in);
-		System.out.println("Ingrese el nombre del archivo");
-		String nombreArch = scn.nextLine();
-		
 		try{
-            FileInputStream fstream = new FileInputStream("./" + nombreArch);
+            FileInputStream fstream = new FileInputStream(file);
             DataInputStream entrada = new DataInputStream(fstream);
             BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
             String strLinea;
@@ -50,17 +46,21 @@ public class ManejoArchivos {
             		}
             		nombre = arreglo[0];
             		tipoAtencion = arreglo[1];
-            		tipoDireccion = arreglo[2];
+            		tipoDir = arreglo[2];
             		calle = Integer.parseInt(arreglo[3]);
             	    carrera = Integer.parseInt(arreglo[4]);
             	    numero = Integer.parseInt(arreglo[5]);
+            	    if(tipoDir.compareTo("CALLE") == 0){
+            	    	tipoDireccion = TipoDireccion.CALLE;
+            	    }else if (tipoDir.compareTo("CARRERA") == 0);{
+            	    		tipoDireccion = TipoDireccion.CARRERA;
+            	    	}
             	    empresaAmbulancias.agregarIPS(nombre, tipoAtencion, tipoDireccion, calle, carrera, numero);
             	}
             }
             entrada.close();
             return true;
-        }catch (Exception e){ 
-            System.err.println("Ocurrio un error: " + e.getMessage());
+        }catch (Exception e){
             return false;
         }
 	}
@@ -69,18 +69,16 @@ public class ManejoArchivos {
 	 * Valida el tipo de ambulancia que lee para luego llamar la funcion del respectivo tipo de ambulancia
 	 * empresaAmbulancias.agregarAmbulancia con la informacion adecuada
 	 * @param empresaAmbulancias Recibe un objeto de tipo IServiciosAmbulancias para porder acceder a los metodos
+	 * @return 
 	 */
-	public static boolean agregarTxtAmbulancia (IServiciosAmbulancias empresaAmbulancias) {
+	public static boolean agregarTxtAmbulancia (IServiciosAmbulancias empresaAmbulancias, File file) {
 		String tipoAmbulancia;
 		int codigo;
 		String placa;
 		String medicoEnf;
 		String tipoUCI;
-		Scanner scn = new Scanner(System.in);
-		System.out.println("Ingrese el nombre del archivo");
-		String nombreArch = scn.nextLine();
 		try{
-            FileInputStream fstream = new FileInputStream("./" + nombreArch);
+            FileInputStream fstream = new FileInputStream(file);
             DataInputStream entrada = new DataInputStream(fstream);
             BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
             String strLinea;
@@ -110,11 +108,11 @@ public class ManejoArchivos {
             }
             entrada.close();
             return true;
-        }catch (Exception e){ 
-            System.err.println("Ocurrio un error: " + e.getMessage());
+        }catch (Exception e){
             return false;
         }
 	}
+
 	public static void guardarDatos(IServiciosAmbulancias empresaAmbulancias, String pathArchivo,
 			String nombreArchivo) {
 		// TODO Auto-generated method stub
