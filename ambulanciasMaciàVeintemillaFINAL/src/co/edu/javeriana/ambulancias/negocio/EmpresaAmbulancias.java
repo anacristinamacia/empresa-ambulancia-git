@@ -929,4 +929,29 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	}
 	
 	
+	public boolean isAsignado (int codigo) {
+		boolean flag = false;
+		for (Servicio serv : servicios) {
+			if (serv.getCodigo() == codigo) {
+				if (serv.getEstado() == EstadoServicio.ASIGNADO) { 
+					flag = true;
+				}
+			}
+		}
+		return flag;
+	}
+	
+	public Servicio getServicioById(int id)
+	{
+		for(Servicio servicio : servicios)
+		{
+			if(servicio.getCodigo() == id)
+			{
+				return servicio;
+			}
+		}
+		return null;			
+	}
+	
+	
 }
