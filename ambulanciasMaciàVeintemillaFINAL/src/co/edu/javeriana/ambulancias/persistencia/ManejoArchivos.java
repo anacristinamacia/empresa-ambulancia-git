@@ -14,6 +14,7 @@ import java.io.ObjectOutputStream;
 import java.util.StringTokenizer;
 
 import co.edu.javeriana.ambulancias.anumerados.TipoDireccion;
+import co.edu.javeriana.ambulancias.anumerados.TipoUCI;
 import co.edu.javeriana.ambulancias.negocio.EmpresaAmbulancias;
 import co.edu.javeriana.ambulancias.negocio.IServiciosAmbulancias;
 
@@ -77,6 +78,7 @@ public class ManejoArchivos {
 		String placa;
 		String medicoEnf;
 		String tipoUCI;
+		TipoUCI uci;
 		try{
             FileInputStream fstream = new FileInputStream(file);
             DataInputStream entrada = new DataInputStream(fstream);
@@ -102,7 +104,14 @@ public class ManejoArchivos {
             		}
             		if (tipoAmbulancia.compareTo("UCI") == 0) {
             			tipoUCI = arreglo[4];
-            			empresaAmbulancias.agregarAmbulanciaUCI(codigo, placa, medicoEnf, tipoUCI);
+            			if(tipoUCI.compareTo("CARDIOVASCULAR") == 0){
+            				uci = TipoUCI.CARDIOVASCULAR;
+            			}else if(tipoUCI.compareTo("PEDIATRICA") == 0){
+            				uci = TipoUCI.PEDIATRICA;
+            			}else{
+            				return false;
+            			}
+            			empresaAmbulancias.agregarAmbulanciaUCI(codigo, placa, medicoEnf, uci);
             		}
             	}
             }

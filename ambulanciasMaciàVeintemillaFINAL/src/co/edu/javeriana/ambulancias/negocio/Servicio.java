@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import co.edu.javeriana.ambulancias.anumerados.EstadoServicio;
 import co.edu.javeriana.ambulancias.anumerados.TipoDireccion;
+import co.edu.javeriana.ambulancias.anumerados.TipoServicio;
 
 public class Servicio implements Serializable{
 
@@ -12,9 +14,9 @@ public class Servicio implements Serializable{
 	private long codigo;
 	private Date horaSolicitud;
 	private String paciente;
-	private String tipoServicio;
+	private TipoServicio tipoServicio;
 	private String telefono;
-	private String estado;
+	private EstadoServicio estado;
 	private double valor;
 	private Direccion direccion;
 	private Ambulancia ambulancia;
@@ -83,14 +85,14 @@ public class Servicio implements Serializable{
 	 * Accede al atributo de tipo String tipoServicio
 	 * @return Retorna el valor de tipoServicio
 	 */
-	public String getTipoServicio() {
+	public TipoServicio getTipoServicio() {
 		return tipoServicio;
 	}
 	/**
 	 * Le otorga un valor al atributo tipoServicio
 	 * @param tipoServicio Recibe un String y se lo otorga al atributo
 	 */
-	public void setTipoServicio(String tipoServicio) {
+	public void setTipoServicio(TipoServicio tipoServicio) {
 		this.tipoServicio = tipoServicio;
 	}
 	/**
@@ -111,14 +113,14 @@ public class Servicio implements Serializable{
 	 * Accede al atributo de tipo String estado
 	 * @return Retorna el valor de estado
 	 */
-	public String getEstado() {
+	public EstadoServicio getEstado() {
 		return estado;
 	}
 	/**
 	 * Le otorga un valor al atributo estado
 	 * @param estado Recibe un String y se lo otorga al atributo
 	 */
-	public void setEstado(String estado) {
+	public void setEstado(EstadoServicio estado) {
 		this.estado = estado;
 	}
 	/**
@@ -177,8 +179,8 @@ public class Servicio implements Serializable{
 	 * @param carrera Recibe un in y se lo otorga al atributo carrera
 	 * @param numero Recibe un in y se lo otorga al atributo numero
 	 */
-	public Servicio(Date horaSolicitud, String paciente, String tipoServicio,
-			String telefono, String estado, TipoDireccion tipoDireccion, int calle, int carrera, int numero) {
+	public Servicio(Date horaSolicitud, String paciente, TipoServicio tipoServicio,
+			String telefono, EstadoServicio estado, TipoDireccion tipoDireccion, int calle, int carrera, int numero) {
 		this.codigo = CONSECUTIVO++;
 		this.horaSolicitud = horaSolicitud;
 		this.paciente = paciente;

@@ -10,7 +10,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import co.edu.javeriana.ambulancias.anumerados.EstadoServicio;
 import co.edu.javeriana.ambulancias.anumerados.TipoDireccion;
+import co.edu.javeriana.ambulancias.anumerados.TipoServicio;
+import co.edu.javeriana.ambulancias.anumerados.TipoUCI;
 import co.edu.javeriana.ambulancias.presentacion.Utils;
 
 public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
@@ -110,7 +113,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	 */
 	private boolean buscarNoAsignado () {
 		for (int i = 0; i < servicios.size(); i++) {
-			if (servicios.get(i).getEstado().compareTo("NO_ASIGNADO") == 0) {
+			if (servicios.get(i).getEstado() == servicios.get(i).getEstado().NO_ASIGNADO) {
 				return true;
 			}
 		}
@@ -122,7 +125,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	 */
 	private boolean buscarAsignado () {
 		for (int i = 0; i < servicios.size(); i++) {
-			if (servicios.get(i).getEstado().compareTo("ASIGNADO") == 0) {
+			if (servicios.get(i).getEstado() == servicios.get(i).getEstado().ASIGNADO) {
 				return true;
 			}
 		}
@@ -137,7 +140,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	private int buscarServiciodeAmbulancia (Ambulancia ambulancia) {
 		if (!ambulancia.getListaServicios().isEmpty()) {
 			for (int i = 0; i < ambulancia.getListaServicios().size(); i++) {
-				if (ambulancia.getListaServicios().get(i).getEstado().compareTo("ASIGNADO") == 0) {
+				if (ambulancia.getListaServicios().get(i).getEstado()== ambulancia.getListaServicios().get(i).getEstado().ASIGNADO) {
 					return i;
 				}
 			}
@@ -199,7 +202,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	 * @param medico Atributo de la ambulancia a crear
 	 * @param tipoUCI Atributo de la ambulancia a crear
 	 */
-	public void agregarAmbulanciaUCI (int codigo, String placa, String medico, String tipoUCI) {
+	public void agregarAmbulanciaUCI (int codigo, String placa, String medico, TipoUCI tipoUCI) {
 		AmbulanciaUCI ambulanciaUCI = new AmbulanciaUCI (codigo, placa, medico, tipoUCI);
 		ambulancias.put(codigo, ambulanciaUCI);
 	}
@@ -243,9 +246,9 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	 * @param numero Recibe un int que corresponde a la numero que se requiere en el constructor de Servicio
 	 * @return Retorna el codigo el cual le fue asignado al servicio
 	 */
-	public long registrarServicio (String paciente, String tipoServicio, String telefono, TipoDireccion tipoDireccion, int calle, int carrera, int numero) {
+	public long registrarServicio (String paciente, TipoServicio tipoServicio, String telefono, TipoDireccion tipoDireccion, int calle, int carrera, int numero) {
 		Date horaSolicitud = Utils.manejoFechas();
-		Servicio servicio = new Servicio(horaSolicitud, paciente, tipoServicio, telefono, "NO_ASIGNADO", tipoDireccion, calle, carrera, numero);
+		Servicio servicio = new Servicio(horaSolicitud, paciente, tipoServicio, telefono, EstadoServicio.NO_ASIGNADO, tipoDireccion, calle, carrera, numero);
 		servicios.add(servicio);
 		return servicio.getCodigo();
 	}
@@ -365,9 +368,9 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 				System.out.print("CARRERA " + servicios.get(i).getDireccion().getCarrera() + "#" + servicios.get(i).getDireccion().getCalle() + "-" + servicios.get(i).getDireccion().getNumero() + "\t\t");
 			System.out.print(servicios.get(i).getEstado() + "\t");
 				
-			if (servicios.get(i).getEstado().compareTo("ASIGNADO") == 0 || servicios.get(i).getEstado().compareTo("FINALIZADO") == 0) {
+			if (servicios.get(i).getEstado() == servicios.get(i).getEstado().ASIGNADO || servicios.get(i).getEstado() == servicios.get(i).getEstado().FINALIZADO) {
 				System.out.println(servicios.get(i).getValor());
-				if (servicios.get(i).getTipoServicio().compareTo("DOMICILIO") != 0) {
+				if (servicios.get(i).getTipoServicio() != servicios.get(i).getTipoServicio().DOMICILIO) {
 					System.out.println("\tIPS asignada:");
 					System.out.println("\tNombre\tTipoAtencion\tDireccion");
 					System.out.println("\t----------------------------------------------------------------------------------------------------------------");
@@ -424,7 +427,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 			System.out.println("Codigo\tHoraSolicitud\tPaciente\tTipoServicio\tTelefono\tDireccion");
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM kk:mm");
 			for (int i = 0; i < servicios.size(); i++) {
-				if (servicios.get(i).getEstado().compareTo("NO_ASIGNADO") == 0) {
+				if (servicios.get(i).getEstado() == servicios.get(i).getEstado().NO_ASIGNADO) {
 					System.out.print(servicios.get(i).getCodigo() + "\t");
 					System.out.print(sdf.format(servicios.get(i).getHoraSolicitud()) + "\t");
 					System.out.print(servicios.get(i).getPaciente() + "\t\t");
@@ -455,11 +458,11 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 			servicios.equals(ordenarServiciosCodigo(servicios));
 			System.out.println("Codigo\tPaciente\tAmbulancia\tIPS");
 			for (int i = 0; i < servicios.size(); i++) {
-				if (servicios.get(i).getEstado().compareTo("ASIGNADO") == 0) {
+				if (servicios.get(i).getEstado() == servicios.get(i).getEstado().ASIGNADO) {
 					System.out.print(servicios.get(i).getCodigo() + "\t");
 					System.out.print(servicios.get(i).getPaciente() + "\t\t");
 					System.out.print(servicios.get(i).getAmbulancia().getCodigo() + "\t");
-					if (servicios.get(i).getTipoServicio().compareTo("DOMICILIO") != 0) {
+					if (servicios.get(i).getTipoServicio() != servicios.get(i).getTipoServicio().DOMICILIO) {
 						System.out.println(servicios.get(i).getIps().getNombre());
 					}
 					else {
@@ -498,7 +501,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 					System.out.print("CARRERA " + servicios.get(i).getDireccion().getCarrera() + "#" + servicios.get(i).getDireccion().getCalle() + "-" + servicios.get(i).getDireccion().getNumero() + "\t");
 				}
 				System.out.print(servicios.get(i).getEstado() + "\t");
-				if (servicios.get(i).getEstado().compareTo("ASIGNADO") == 0 || servicios.get(i).getEstado().compareTo("FINALIZADO") == 0) {
+				if (servicios.get(i).getEstado() == servicios.get(i).getEstado().ASIGNADO|| servicios.get(i).getEstado() == servicios.get(i).getEstado().FINALIZADO) {
 					if (servicios.get(i).getAmbulancia() instanceof AmbulanciaMedicalizada) {
 						AmbulanciaMedicalizada ambulanciaM = (AmbulanciaMedicalizada) servicios.get(i).getAmbulancia();
 						System.out.println(ambulanciaM.getMedico());
@@ -612,13 +615,13 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 		Set<Integer> set = ambulancias.keySet();
 		for(Integer key: set) {
 			if (ambulancias.get(key).isDisponible() && ambulancias.get(key).getPosicionCalle() != 0) {
-				if (servicio.getTipoServicio().compareTo("EMERGENCIA") == 0 && ambulancias.get(key) instanceof AmbulanciaUCI) {
+				if (servicio.getTipoServicio() == servicio.getTipoServicio().EMERGENCIA && ambulancias.get(key) instanceof AmbulanciaUCI) {
 					ambulanciasDisponibles.add(ambulancias.get(key));
 				}
-				if (servicio.getTipoServicio().compareTo("URGENCIA") == 0 && ambulancias.get(key) instanceof AmbulanciaMedicalizada) {
+				if (servicio.getTipoServicio() == servicio.getTipoServicio().URGENCIA && ambulancias.get(key) instanceof AmbulanciaMedicalizada) {
 					ambulanciasDisponibles.add(ambulancias.get(key));
 				}
-				if (servicio.getTipoServicio().compareTo("DOMICILIO") == 0) {
+				if (servicio.getTipoServicio() == servicio.getTipoServicio().DOMICILIO) {
 					ambulanciasDisponibles.add(ambulancias.get(key));
 				}
 			}
@@ -704,10 +707,10 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 		if (buscarServicio(codigoServicio) == null) {
 			msj = "El codigo ingresado no existe";
 		}
-		if (buscarServicio(codigoServicio) != null && buscarServicio(codigoServicio).getEstado().compareTo("ASIGNADO") == 0) {
+		if (buscarServicio(codigoServicio) != null && buscarServicio(codigoServicio).getEstado() == buscarServicio(codigoServicio).getEstado().ASIGNADO) {
 			msj = "El codigo de servicio ingresado ya se encuentra asignado";
 		}
-		if (buscarServicio(codigoServicio) != null && buscarServicio(codigoServicio).getEstado().compareTo("NO_ASIGNADO") == 0) {
+		if (buscarServicio(codigoServicio) != null && buscarServicio(codigoServicio).getEstado() == buscarServicio(codigoServicio).getEstado().NO_ASIGNADO) {
 			Servicio servicioAsignar = buscarServicio(codigoServicio);
 			ArrayList<Ambulancia> ambulanciasDisponibles = construirAmbulanciasDisponiblesServicio(servicioAsignar);
 			if (ambulanciasDisponibles.isEmpty()) {
@@ -716,14 +719,14 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 			else {
 				for (int i = 0; i < servicios.size(); i++) {
 					if (servicios.get(i).equals(servicioAsignar)) {
-						if (servicios.get(i).getTipoServicio().compareTo("DOMICILIO") != 0) {
+						if (servicios.get(i).getTipoServicio() != servicios.get(i).getTipoServicio().DOMICILIO) {
 							if (calcularIPSmasCercano(servicios.get(i).getDireccion().getCalle(), servicios.get(i).getDireccion().getCarrera()) == null) {
 								msj = "No se encuentran IPS disponibles";
 							}
 							else {
 								servicios.get(i).setAmbulancia(calcularAmbulanciaMasCercana(ambulanciasDisponibles, servicios.get(i).getDireccion().getCalle(), servicios.get(i).getDireccion().getCarrera()));
 								ambulancias.get(servicios.get(i).getAmbulancia().getCodigo()).setDisponible(false);
-								servicios.get(i).setEstado("ASIGNADO");
+								servicios.get(i).setEstado(EstadoServicio.ASIGNADO);
 								ambulancias.get(servicios.get(i).getAmbulancia().getCodigo()).getListaServicios().add(servicios.get(i));
 								servicios.get(i).setIps(calcularIPSmasCercano(servicios.get(i).getDireccion().getCalle(), servicios.get(i).getDireccion().getCarrera()));
 								losIPS.get(servicios.get(i).getIps().getNombre()).getListaServicios().add(servicios.get(i));
@@ -734,7 +737,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 						else {
 							servicios.get(i).setAmbulancia(calcularAmbulanciaMasCercana(ambulanciasDisponibles, servicios.get(i).getDireccion().getCalle(), servicios.get(i).getDireccion().getCarrera()));
 							ambulancias.get(servicios.get(i).getAmbulancia().getCodigo()).setDisponible(false);
-							servicios.get(i).setEstado("ASIGNADO");
+							servicios.get(i).setEstado(EstadoServicio.ASIGNADO);
 							ambulancias.get(servicios.get(i).getAmbulancia().getCodigo()).getListaServicios().add(servicios.get(i));
 							servicios.get(i).setValor(servicios.get(i).calcularValor(servicios.get(i).getAmbulancia()));
 							msj = "El servicio de codigo " + servicios.get(i).getCodigo() + " le fue asignado la Ambulancia " + servicios.get(i).getAmbulancia().getCodigo();
@@ -755,7 +758,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	public boolean validarServicioAsignado (int codigoServicio) {
 		for (int i = 0; i < servicios.size(); i++) {
 			if (servicios.get(i).getCodigo() == codigoServicio) {
-				if (servicios.get(i).getEstado().compareTo("ASIGNADO") == 0) {
+				if (servicios.get(i).getEstado()== servicios.get(i).getEstado().ASIGNADO) {
 					return true;
 				}
 				else {
@@ -777,18 +780,18 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 	public boolean finalizarServicio (int codigoServicio) {
 		for (int i = 0; i < servicios.size(); i++) {
 			if (servicios.get(i).getCodigo() == codigoServicio) {
-				servicios.get(i).setEstado("FINALIZADO");
+				servicios.get(i).setEstado(EstadoServicio.FINALIZADO);
 				int key = servicios.get(i).getAmbulancia().getCodigo();
 				for (int k = 0; k < ambulancias.get(key).getListaServicios().size(); k++) {
 					if (ambulancias.get(key).getListaServicios().get(k).getCodigo() == codigoServicio) {
-						ambulancias.get(key).getListaServicios().get(k).setEstado("FINALIZADO");
+						ambulancias.get(key).getListaServicios().get(k).setEstado(EstadoServicio.FINALIZADO);
 					}
 				}
-				if (servicios.get(i).getTipoServicio().compareTo("DOMICILIO") != 0) {
+				if (servicios.get(i).getTipoServicio() != servicios.get(i).getTipoServicio().DOMICILIO) {
 					String key1 = servicios.get(i).getIps().getNombre();
 					for (int k = 0; k < losIPS.get(key1).getListaServicios().size(); k++) {
 						if (losIPS.get(key1).getListaServicios().get(k).getCodigo() == codigoServicio) {
-							losIPS.get(key1).getListaServicios().get(k).setEstado("FINALIZADO");
+							losIPS.get(key1).getListaServicios().get(k).setEstado(EstadoServicio.FINALIZADO);
 						}
 					}
 				}
@@ -854,4 +857,6 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 		return table;
 		 
 	}
+	
+	
 }
