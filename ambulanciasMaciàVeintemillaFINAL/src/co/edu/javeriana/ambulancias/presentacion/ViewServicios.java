@@ -139,7 +139,7 @@ public class ViewServicios extends JPanel {
 		tabbedPane.addTab("Finalizar Servicio", null, viewFinalizarServicio, null);
 		tabbedPane.setEnabledAt(3, false);
 				
-		viewReporteServicios = new ViewReporteServicios();
+		viewReporteServicios = new ViewReporteServicios(ventanaPrincipal);
 		tabbedPane.addTab("Reporte", null, viewReporteServicios, null);
 		tabbedPane.setEnabledAt(4, false);
 
