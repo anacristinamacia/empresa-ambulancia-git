@@ -76,8 +76,6 @@ public class ViewRegistrarPosicion extends JPanel {
 		btnActualizar.setBorderPainted(false);
 		btnActualizar.setForeground(Color.WHITE);
 		
-		
-		
 		add(panelSur, BorderLayout.SOUTH);
 		modelAmbulancias = new DefaultTableModel(contAmbulancias, lablesAmbulancia);
 		table = new JTable(modelAmbulancias);

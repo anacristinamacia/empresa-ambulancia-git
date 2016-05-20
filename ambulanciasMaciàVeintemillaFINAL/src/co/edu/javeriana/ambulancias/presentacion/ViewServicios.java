@@ -116,7 +116,7 @@ public class ViewServicios extends JPanel {
 		
 			ViewAsignarServicio viewAsignarServicio_1 = new ViewAsignarServicio();
 			tabbedPane.addTab("Asignar Servicio", null, viewAsignarServicio_1, null);
-			tabbedPane.setEnabledAt(2, false);
+			tabbedPane.setEnabledAt(2, true);
 		
 		ViewFinalizarServicio viewFinalizarServicio = new ViewFinalizarServicio();
 		tabbedPane.addTab("Finalizar Servicio", null, viewFinalizarServicio, null);

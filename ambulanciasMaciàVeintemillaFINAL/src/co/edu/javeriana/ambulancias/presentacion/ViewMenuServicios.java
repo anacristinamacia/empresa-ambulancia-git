@@ -12,7 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 public class ViewMenuServicios extends JPanel {
-
+	private JPanel panel;
+	private JPanel panel_1;
+	private JPanel panel_2;
+	private JPanel panel_3;
+	private JPanel panel_4;
+	private JTextArea txtrMenServicios;
+	private JButton btnRegistrarServicio;
+	private JButton btnAsignarServicio;
+	private JButton btnFinalizarServicio;
+	private JButton btnReportePacientesAtendidos;
+	private JButton btnServiciosConIps;
 	/**
 	 * Create the panel.
 	 */
@@ -20,43 +30,43 @@ public class ViewMenuServicios extends JPanel {
 
 		setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setHgap(50);
 		add(panel, BorderLayout.WEST);
 		
-		JPanel panel_1 = new JPanel();
+		panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
 		FlowLayout flowLayout_3 = (FlowLayout) panel_1.getLayout();
 		flowLayout_3.setVgap(15);
 		add(panel_1, BorderLayout.NORTH);
 		
-		JPanel panel_2 = new JPanel();
+		panel_2 = new JPanel();
 		panel_2.setBackground(Color.WHITE);
 		FlowLayout flowLayout_1 = (FlowLayout) panel_2.getLayout();
 		flowLayout_1.setHgap(50);
 		add(panel_2, BorderLayout.EAST);
 		
-		JPanel panel_3 = new JPanel();
+		panel_3 = new JPanel();
 		panel_3.setBackground(Color.WHITE);
 		FlowLayout flowLayout_2 = (FlowLayout) panel_3.getLayout();
 		flowLayout_2.setVgap(10);
 		add(panel_3, BorderLayout.SOUTH);
 		
-		JPanel panel_4 = new JPanel();
+		panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);
 		add(panel_4, BorderLayout.CENTER);
 		panel_4.setLayout(new GridLayout(6, 0, 0, 10));
 		
-		JTextArea txtrMenServicios = new JTextArea();
+		txtrMenServicios = new JTextArea();
 		txtrMenServicios.setEditable(false);
 		txtrMenServicios.setFont(new Font("Lucida Grande", Font.PLAIN, 19));
 		txtrMenServicios.setForeground(new Color(0, 0, 128));
 		txtrMenServicios.setText("            MENÚ SERVICIOS");
 		panel_4.add(txtrMenServicios);
 		
-		JButton btnRegistrarServicio = new JButton("Registrar Servicio");
+		btnRegistrarServicio = new JButton("Registrar Servicio");
 		btnRegistrarServicio.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Patient_invalid_hospital_woman2.png"));
 		btnRegistrarServicio.setForeground(Color.WHITE);
 		btnRegistrarServicio.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
@@ -65,7 +75,7 @@ public class ViewMenuServicios extends JPanel {
 		btnRegistrarServicio.setBorderPainted(false);
 		panel_4.add(btnRegistrarServicio);
 		
-		JButton btnAsignarServicio = new JButton("Asignar Servicio");
+		btnAsignarServicio = new JButton("Asignar Servicio");
 		btnAsignarServicio.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Physician_head_doctor_MD_woman2.png"));
 		btnAsignarServicio.setForeground(Color.WHITE);
 		btnAsignarServicio.setBackground(Color.WHITE);
@@ -75,7 +85,7 @@ public class ViewMenuServicios extends JPanel {
 		btnAsignarServicio.setBorderPainted(false);
 		panel_4.add(btnAsignarServicio);
 		
-		JButton btnFinalizarServicio = new JButton("Finalizar Servicio");
+		btnFinalizarServicio = new JButton("Finalizar Servicio");
 		btnFinalizarServicio.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/check.png"));
 		btnFinalizarServicio.setForeground(Color.WHITE);
 		btnFinalizarServicio.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
@@ -84,7 +94,7 @@ public class ViewMenuServicios extends JPanel {
 		btnFinalizarServicio.setBorderPainted(false);
 		panel_4.add(btnFinalizarServicio);
 		
-		JButton btnReportePacientesAtendidos = new JButton("Pacientes atendidos");
+		btnReportePacientesAtendidos = new JButton("Pacientes atendidos");
 		btnReportePacientesAtendidos.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Clien_list.png"));
 		btnReportePacientesAtendidos.setForeground(Color.WHITE);
 		btnReportePacientesAtendidos.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
@@ -93,7 +103,7 @@ public class ViewMenuServicios extends JPanel {
 		btnReportePacientesAtendidos.setBorderPainted(false);
 		panel_4.add(btnReportePacientesAtendidos);
 		
-		JButton btnServiciosConIps = new JButton("Servicios con IPS y Ambulancias");
+		btnServiciosConIps = new JButton("Servicios con IPS y Ambulancias");
 		btnServiciosConIps.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Report.png"));
 		btnServiciosConIps.setForeground(Color.WHITE);
 		btnServiciosConIps.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
