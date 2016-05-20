@@ -183,6 +183,7 @@ public class ViewMenuServicios extends JPanel {
 		btnFinalizarServicio.setBackground(Color.DARK_GRAY);
 		btnFinalizarServicio.setOpaque(true);
 		btnFinalizarServicio.setBorderPainted(false);
+		btnFinalizarServicio.addActionListener(this.controller.getMenuServicios());
 		panel_4.add(btnFinalizarServicio);
 		
 		btnReportePacientesAtendidos = new JButton("Pacientes atendidos");

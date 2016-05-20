@@ -17,18 +17,11 @@ public class MenuServiciosListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getActionCommand().equals("Registrar Servicio")) {
-			if (!ventanaPrincipal.getViewServicios().equals(null)) {
-				System.out.println("view servicios dif de null");
-				if (!ventanaPrincipal.getViewServicios().getViewMenuServicios().equals(null)) {
-					System.out.println("view menu serv dif de null");
-					if (!ventanaPrincipal.getViewServicios().getViewMenuServicios().getBtnRegistrarServicio().equals(null)) {
-						System.out.println("boton difer a null");
-						ventanaPrincipal.getViewServicios().getTabbedPane().setSelectedIndex(1);
-					}
-				}
-			}
+			ventanaPrincipal.getViewServicios().getTabbedPane().setSelectedIndex(1);
 		}
-		
+		if (e.getActionCommand().equals("Finalizar Servicio")) {
+			ventanaPrincipal.getViewServicios().getTabbedPane().setSelectedIndex(3);
+		}
 		
 	}
 

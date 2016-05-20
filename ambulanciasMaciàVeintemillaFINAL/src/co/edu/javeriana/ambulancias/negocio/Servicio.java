@@ -216,6 +216,33 @@ public class Servicio implements Serializable{
 		}
 		return ambulancia.calcularTarifa();
 	}
+	public String getStringTipoServicio() {
+		// TODO Auto-generated method stub
+		if (this.tipoServicio == TipoServicio.DOMICILIO) {
+			return "DOMICILIO";
+		}
+		if (this.tipoServicio == TipoServicio.EMERGENCIA) {
+			return "EMERGENCIA";
+		}
+		if (this.tipoServicio == TipoServicio.URGENCIA) {
+			return "URGENCIA";
+		}
+		return null;
+	}
+	public String getStringEstado() {
+		// TODO Auto-generated method stub
+		if (this.estado == EstadoServicio.ASIGNADO) {
+			return "ASIGNADO";
+		}
+		if (this.estado == EstadoServicio.FINALIZADO) {
+			return "FINALIZADO";
+		}
+		if (this.estado == EstadoServicio.NO_ASIGNADO) {
+			return "NO_ASIGNADO";
+		}
+		
+		return null;
+	}
 	
 	
 }

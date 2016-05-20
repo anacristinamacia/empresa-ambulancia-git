@@ -858,5 +858,47 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 		 
 	}
 	
+	// Method colaboration with Juan Pablo Penaloza
+	public String [][] getTableServicios () {
+		ArrayList <ArrayList <String>> tableServicios = new ArrayList<ArrayList<String>>();
+		
+		for (Servicio serv : servicios) {
+			ArrayList<String> tempRow = new ArrayList <String>();
+			tempRow.add(String.valueOf(serv.getCodigo()));
+			tempRow.add(Utils.formatDate(serv.getHoraSolicitud()));
+			tempRow.add(serv.getPaciente());
+			tempRow.add(serv.getStringTipoServicio());
+			tempRow.add(serv.getTelefono());
+			tempRow.add(serv.getDireccion().toString());
+			tempRow.add(serv.getStringEstado());
+			if (serv.getIps() != null)
+			{
+				tempRow.add(serv.getIps().getNombre());
+			}
+			else 
+			{
+				tempRow.add(" ");
+			}
+			if (serv.getAmbulancia() != null) 
+			{
+				tempRow.add(String.valueOf(serv.getAmbulancia().getCodigo()));
+			}				
+			else 
+			{
+				tempRow.add(" ");
+			}
+			tempRow.add(String.valueOf(serv.getValor())); // New
+			tableServicios.add(tempRow);
+		}
+		String[][] table = new String[tableServicios.size()][];
+		int cont = 0;
+		for (int i = tableServicios.size() - 1; i >= 0; i--) {
+		    ArrayList<String> row = tableServicios.get(i);
+		    table[cont++] = row.toArray(new String[row.size()]);
+		} 
+		
+		return table;
+	}
+
 	
 }

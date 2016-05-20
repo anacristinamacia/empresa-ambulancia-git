@@ -12,8 +12,15 @@ public class Controller {
 	private MenuAmbulanciasListener menuAmbulancias;
 	private RegistrarServicio registrarServicio;
 	private MenuServiciosListener menuServicios;
+	private FinalizarServicioListener finalizarServicio;
 	
 	
+	public FinalizarServicioListener getFinalizarServicio() {
+		return finalizarServicio;
+	}
+	public void setFinalizarServicio(FinalizarServicioListener finalizarServicio) {
+		this.finalizarServicio = finalizarServicio;
+	}
 	public MenuServiciosListener getMenuServicios() {
 		return menuServicios;
 	}
@@ -74,6 +81,7 @@ public class Controller {
 		this.menuAmbulancias = new MenuAmbulanciasListener(ventanaPrincipal);
 		this.registrarServicio = new RegistrarServicio(ventanaPrincipal);
 		this.menuServicios = new MenuServiciosListener(ventanaPrincipal);
+		this.finalizarServicio = new FinalizarServicioListener(ventanaPrincipal);
 	}
 	
 	
