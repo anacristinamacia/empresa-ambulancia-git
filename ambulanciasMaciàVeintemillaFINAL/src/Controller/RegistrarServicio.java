@@ -26,6 +26,7 @@ public class RegistrarServicio implements ActionListener{
 		if (e.getActionCommand().equals("Aceptar")) {
 			registrarServicio();
 			ventanaPrincipal.getController().getReporteServicios().actualizarContServicios();
+			ventanaPrincipal.getController().getFinalizarServicio().actualizarServicios();
 		}
 	}
 	

@@ -174,6 +174,7 @@ public class ViewMenuServicios extends JPanel {
 		btnAsignarServicio.setBackground(Color.DARK_GRAY);
 		btnAsignarServicio.setOpaque(true);
 		btnAsignarServicio.setBorderPainted(false);
+		btnAsignarServicio.addActionListener(this.controller.getMenuServicios());
 		panel_4.add(btnAsignarServicio);
 		
 		btnFinalizarServicio = new JButton("Finalizar Servicio");

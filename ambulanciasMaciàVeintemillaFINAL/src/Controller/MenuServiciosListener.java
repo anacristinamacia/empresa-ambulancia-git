@@ -22,7 +22,11 @@ public class MenuServiciosListener implements ActionListener{
 		if (e.getActionCommand().equals("Finalizar Servicio")) {
 			ventanaPrincipal.getViewServicios().getTabbedPane().setSelectedIndex(3);
 		}
-		
+		if (e.getActionCommand().equals("Asignar Servicio")) {
+			
+			ventanaPrincipal.getViewServicios().getTabbedPane().setSelectedIndex(2);
+			
+		}
 	}
 
 }

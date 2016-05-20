@@ -20,6 +20,10 @@ public class FinalizarServicioListener implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+	
+		if (e.getActionCommand().equals("Actualizar")){
+			actualizarServicios();
+		}
 		if (e.getActionCommand().equals("Finalizar")) {
 			int codigo = 0;
 			try {
@@ -34,8 +38,8 @@ public class FinalizarServicioListener implements ActionListener{
 	
 	public void actualizarServicios () {
 		EmpresaAmbulancias empresaTemp = (EmpresaAmbulancias) ventanaPrincipal.getEmpresaAmbulancias();
-		String tempModel[][] = empresaTemp.getModelAmbulancias();
-		ventanaPrincipal.getViewAmbulancias().getViewRegistrarPosicion().updateAmbulanciaModel(tempModel);
+		String tempModel[][] = empresaTemp.getTableServicios();
+		ventanaPrincipal.getViewServicios().getViewFinalizarServicio().updateServiciosModel(tempModel);
 	}
 	
 	

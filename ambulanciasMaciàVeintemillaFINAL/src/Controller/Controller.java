@@ -14,8 +14,15 @@ public class Controller {
 	private MenuServiciosListener menuServicios;
 	private FinalizarServicioListener finalizarServicio;
 	private ReporteServiciosListener reporteServicios;
+	private AsignarServicioListener asignarServicio;
 	
 	
+	public AsignarServicioListener getAsignarServicio() {
+		return asignarServicio;
+	}
+	public void setAsignarServicio(AsignarServicioListener asignarServicio) {
+		this.asignarServicio = asignarServicio;
+	}
 	public FinalizarServicioListener getFinalizarServicio() {
 		return finalizarServicio;
 	}
@@ -90,6 +97,7 @@ public class Controller {
 		this.menuServicios = new MenuServiciosListener(ventanaPrincipal);
 		this.finalizarServicio = new FinalizarServicioListener(ventanaPrincipal);
 		this.reporteServicios = new ReporteServiciosListener(ventanaPrincipal);
+		this.asignarServicio = new AsignarServicioListener(ventanaPrincipal);
 	}
 	
 	
