@@ -97,6 +97,7 @@ public class Controller {
 		this.menuServicios = new MenuServiciosListener(ventanaPrincipal);
 		this.finalizarServicio = new FinalizarServicioListener(ventanaPrincipal);
 		this.reporteServicios = new ReporteServiciosListener(ventanaPrincipal);
+		this.asignarServicio = new AsignarServicioListener(ventanaPrincipal);
 	}
 	
 	

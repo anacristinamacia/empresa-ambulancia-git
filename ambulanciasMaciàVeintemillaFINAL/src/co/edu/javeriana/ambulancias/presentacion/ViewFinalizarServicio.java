@@ -28,6 +28,7 @@ public class ViewFinalizarServicio extends JPanel {
 	private JPanel panel;
 	private JPanel panel_2;
 	private JButton btnFinalizar;
+	private JButton btnActualizar;
 	/**
 	 * Create the panel.
 	 */
@@ -60,6 +61,11 @@ public class ViewFinalizarServicio extends JPanel {
 		btnFinalizar.setBorderPainted(false);
 		btnFinalizar.setForeground(Color.WHITE);
 		btnFinalizar.addActionListener(this.controller.getFinalizarServicio());
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(this.controller.getFinalizarServicio())
+		;
+		panel.add(btnActualizar);
 		panel.add(btnFinalizar);
 		
 		
@@ -149,6 +155,14 @@ public class ViewFinalizarServicio extends JPanel {
 
 	public void setBtnFinalizar(JButton btnFinalizar) {
 		this.btnFinalizar = btnFinalizar;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
 	}
 
 	

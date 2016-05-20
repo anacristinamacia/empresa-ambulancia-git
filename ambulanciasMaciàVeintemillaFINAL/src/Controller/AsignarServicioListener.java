@@ -16,13 +16,35 @@ public class AsignarServicioListener implements ActionListener{
 		this.ventanaPrincipal = ventanaPrincipal;
 	}
 
-	public void actionPerformed(ActionEvent arg0) {
-		ventanaPrincipal.getViewServicios().getTabbedPane().setSelectedIndex(2);
+	public void actionPerformed(ActionEvent e) {
+		EmpresaAmbulancias empresaTemp = (EmpresaAmbulancias) ventanaPrincipal.getEmpresaAmbulancias();
+		if (e.getActionCommand().equals("Actualizar")) {
+			cargarTablas();	
+			System.out.println("Actualizar");
+		}
+		if (e.getActionCommand().equals("Aceptar")) {
+			
+			int codigo = 0;
+			try {
+				codigo = ventanaPrincipal.getViewServicios().getViewAsignarServicio().getSelectedRowCode();
+			} catch (Exception exc){
+				System.out.println("No hay nada seleccionado");
+			}
+			
+			empresaTemp.asignarServicio(codigo);
+			System.out.println("CODIGO: " + codigo);
+			cargarTablas();
+		}
 		
 	}	
 	public void cargarTablas(){
-		String m[][] ;
-		EmpresaAmbulancias ea = (EmpresaAmbulancias)ventanaPrincipal.getEmpresaAmbulancias();
-		ventanaPrincipal.getViewServicios().getViewAsignarServicio().getTablaIPS().setModel((new DefaultTableModel((ea.getModelIPS()), (ventanaPrincipal.getViewServicios().getViewAsignarServicio().getLablesIPS()))));
+		EmpresaAmbulancias empresaTemp = (EmpresaAmbulancias) ventanaPrincipal.getEmpresaAmbulancias();
+		String tempModel [][] = empresaTemp.getModelIPS();
+		System.out.println("CONTENDIDO MAT: " + tempModel[0][0]);
+		ventanaPrincipal.getViewServicios().getViewAsignarServicio().updateIPSModel(tempModel);
+		String servtemp [][] = empresaTemp.getTableServicios();
+		ventanaPrincipal.getViewServicios().getViewAsignarServicio().updateServModel(servtemp);
+		String ambtemp [][] = empresaTemp.getModelAmbulancias();
+		ventanaPrincipal.getViewServicios().getViewAsignarServicio().updateAmbulanciaModel(ambtemp);
 	}
 }

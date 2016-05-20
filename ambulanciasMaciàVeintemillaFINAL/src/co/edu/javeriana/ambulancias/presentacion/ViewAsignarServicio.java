@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import Controller.Controller;
 import net.miginfocom.swing.MigLayout;
@@ -34,6 +35,10 @@ public class ViewAsignarServicio extends JPanel {
 	private String [] lablesServ= {"Codigo", "Hora Sol.","Paciente", "Tipo","telefono", "direccion","Estado", "IPS", "Ambulancia"};
 	private String [][] contServ = {};
 	
+	private TableModel modelServicios;
+	private TableModel modelIPS;
+	private TableModel modelAmbulancia;
+	
 	private JPanel panel;
 	private JPanel panel_1;
 	private JLabel lblAsignarUnServicio;
@@ -47,7 +52,40 @@ public class ViewAsignarServicio extends JPanel {
 	private JScrollPane scrollPane_1;
 	private JLabel lblServicios;
 	private JScrollPane scrollPane_2;
+	private JButton btnActualizar;
 	
+	public TableModel getModelServicios() {
+		return modelServicios;
+	}
+
+	public void setModelServicios(TableModel modelServicios) {
+		this.modelServicios = modelServicios;
+	}
+
+	public TableModel getModelIPS() {
+		return modelIPS;
+	}
+
+	public void setModelIPS(TableModel modelIPS) {
+		this.modelIPS = modelIPS;
+	}
+
+	public TableModel getModelAmbulancia() {
+		return modelAmbulancia;
+	}
+
+	public void setModelAmbulancia(TableModel modelAmbulancia) {
+		this.modelAmbulancia = modelAmbulancia;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
 	public TestGUIAmbulancias getVentanaPrincipal() {
 		return ventanaPrincipal;
 	}
@@ -295,25 +333,34 @@ public class ViewAsignarServicio extends JPanel {
 		add(panel_3, BorderLayout.SOUTH);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this.controller.getAsignarServicio());
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(this.controller.getAsignarServicio());
+		panel_3.add(btnActualizar);
 		panel_3.add(btnAceptar);
 		
 		panel_4 = new JPanel();
 		add(panel_4, BorderLayout.CENTER);
-		panel_4.setLayout(new MigLayout("", "[444px]", "[58px][58px][58px][58px][58px][58px]"));
+		panel_4.setLayout(new MigLayout("", "[444px]", "[65px][65px][65px][65px][65px][65px]"));
 		
 		lblIps = new JLabel("IPS");
 		panel_4.add(lblIps, "cell 0 0,grow");
 		
+		lblAmbulancias = new JLabel("Ambulancias");
+		panel_4.add(lblAmbulancias, "cell 0 2,grow");
+		
+		lblServicios = new JLabel("Servicios");
+		panel_4.add(lblServicios, "cell 0 4,grow");
 		scrollPane = new JScrollPane();
 		panel_4.add(scrollPane, "cell 0 1,grow");
 		
-		tablaIPS = new JTable();
+		
 		modelIps = new DefaultTableModel(contIPS, lablesIPS);
-		tablaIPS.setModel(modelIps);
+		tablaIPS = new JTable(modelIps);
 		scrollPane.setViewportView(tablaIPS);
 		
-		lblAmbulancias = new JLabel("Ambulancias");
-		panel_4.add(lblAmbulancias, "cell 0 2,grow");
+		
 		
 		scrollPane_1 = new JScrollPane();
 		panel_4.add(scrollPane_1, "cell 0 3,grow");
@@ -323,8 +370,7 @@ public class ViewAsignarServicio extends JPanel {
 		tablaAmb.setModel(modelAmb);
 		scrollPane_1.setViewportView(tablaAmb);
 		
-		lblServicios = new JLabel("Servicios");
-		panel_4.add(lblServicios, "cell 0 4,grow");
+		
 		
 		scrollPane_2 = new JScrollPane();
 		panel_4.add(scrollPane_2, "cell 0 5,grow");
@@ -334,8 +380,42 @@ public class ViewAsignarServicio extends JPanel {
 		tablaServ.setModel(modelServ);
 		scrollPane_2.setViewportView(tablaServ);
 		
+		
 	}
 	
+	public int getSelectedRowCode () {
+		int numRow = tablaServ.getSelectedRow();
+		String tempCode = (String) tablaServ.getValueAt(numRow, 0);
+		int code = Integer.parseInt(tempCode);
+		return code;
+	}
 	
+	public void updateIPSModel (Object nuevoCont [][]) {
+		DefaultTableModel tempModel = new DefaultTableModel(nuevoCont, lablesIPS);
+		System.out.println("UDATE");
+		tablaIPS.setModel(tempModel);
+	}
+	
+	public void updateServModel (Object nuevoCont [][]) {
+		DefaultTableModel tempModel = new DefaultTableModel(nuevoCont, lablesServ);
+		System.out.println("UDATE");
+		tablaServ.setModel(tempModel);
+	}
+	
+	public void updateAmbulanciaModel (Object nuevoCont [][]) {
+		DefaultTableModel tempModel = new DefaultTableModel(nuevoCont, lablesAmbulancias);
+		tablaAmb.setModel(tempModel);
+	}
+	
+	public void setTableIPSView () {
+		JLabel tittle = new JLabel("IPS");
+		panel_4.add(tittle, "cell 0 4,grow");
+		
+		modelIPS = new DefaultTableModel(contIPS, lablesIPS);
+		tablaIPS = new JTable(modelIPS);
+		JScrollPane scrollPane = new JScrollPane(tablaIPS);
+		scrollPane.setBounds(0, 128, 345, -128);
+		panel_4.add(scrollPane, "cell 0 5,grow");
+	}
 	
 }

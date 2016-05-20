@@ -727,6 +727,7 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 								servicios.get(i).setAmbulancia(calcularAmbulanciaMasCercana(ambulanciasDisponibles, servicios.get(i).getDireccion().getCalle(), servicios.get(i).getDireccion().getCarrera()));
 								ambulancias.get(servicios.get(i).getAmbulancia().getCodigo()).setDisponible(false);
 								servicios.get(i).setEstado(EstadoServicio.ASIGNADO);
+								System.out.println("Fue asignado el code: " + codigoServicio);
 								ambulancias.get(servicios.get(i).getAmbulancia().getCodigo()).getListaServicios().add(servicios.get(i));
 								servicios.get(i).setIps(calcularIPSmasCercano(servicios.get(i).getDireccion().getCalle(), servicios.get(i).getDireccion().getCarrera()));
 								losIPS.get(servicios.get(i).getIps().getNombre()).getListaServicios().add(servicios.get(i));
@@ -913,9 +914,10 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 			if(losIPS.get(key).getDireccion().getTipoDireccion() == losIPS.get(key).getDireccion().getTipoDireccion().CALLE){
 				tipoDireccion = "CALLE";
 			}else{
-				
+				tipoDireccion = "CARRERA";
 			}
-			tempArray.add( + losIPS.get(key).getDireccion().getCalle() + "#" + losIPS.get(key).getDireccion().getCarrera() + " - " +losIPS.get(key).getDireccion().getNumero());
+			tempArray.add( tipoDireccion + losIPS.get(key).getDireccion().getCalle() + "#" + losIPS.get(key).getDireccion().getCarrera() + " - " +losIPS.get(key).getDireccion().getNumero());
+			tableIPS.add(tempArray);
 		}
 		String[][] table = new String[tableIPS.size()][];
 		int cont = 0;
@@ -923,6 +925,8 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 		    ArrayList<String> row = tableIPS.get(i);
 		    table[cont++] = row.toArray(new String[row.size()]);
 		} 
+		
+		System.out.println("IPS: " + table[0][1]);
 		
 		return table;
 		 
