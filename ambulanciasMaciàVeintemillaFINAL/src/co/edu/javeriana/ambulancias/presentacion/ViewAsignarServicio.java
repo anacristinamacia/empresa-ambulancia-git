@@ -14,5 +14,7 @@ import javax.swing.table.TableModel;
 import Controller.Controller;
 
 public class ViewAsignarServicio extends JPanel {
+	
+	// Now you can work
 
 }
