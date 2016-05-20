@@ -18,7 +18,6 @@ public class ViewIPS extends JPanel {
 	private JPanel contentPane;
 	private ViewMenuIPS viewMenuIPS;
 	private JTabbedPane tabbedPane;
-	private ViewIngresarIPS viewIngresarIPS;
 	private ViewReporteIPS viewReporteIPS;
 	private TestGUIAmbulancias ventanaPrincipal;
 	
@@ -34,12 +33,7 @@ public class ViewIPS extends JPanel {
 	public void setTabbedPane(JTabbedPane tabbedPane) {
 		this.tabbedPane = tabbedPane;
 	}
-	public ViewIngresarIPS getViewIngresarIPS() {
-		return viewIngresarIPS;
-	}
-	public void setViewIngresarIPS(ViewIngresarIPS viewIngresarIPS) {
-		this.viewIngresarIPS = viewIngresarIPS;
-	}
+	
 	public ViewReporteIPS getViewReporteIPS() {
 		return viewReporteIPS;
 	}
@@ -61,9 +55,7 @@ public class ViewIPS extends JPanel {
 		
 		viewMenuIPS = new ViewMenuIPS(this.ventanaPrincipal);
 		tabbedPane.addTab("Men˙ IPS", null, viewMenuIPS, null);
-		
-		viewIngresarIPS = new ViewIngresarIPS();
-		tabbedPane.addTab("Ingresar IPS", null, viewIngresarIPS, null);
+
 		
 		viewReporteIPS = new ViewReporteIPS();
 		tabbedPane.addTab("IPS con Servicios", null, viewReporteIPS, null);
