@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -13,6 +14,9 @@ import Controller.Controller;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import javax.swing.JLabel;
 
 public class ViewRegistrarPosicion extends JPanel {
 	private JTable table;
@@ -24,6 +28,10 @@ public class ViewRegistrarPosicion extends JPanel {
 	private String [][] contAmbulancias = {};
 	private TestGUIAmbulancias ventanaPrincipal;
 	private Controller controller;
+	private JTextField txtCalle;
+	private JTextField txtCarrera;
+	private JLabel lblCalle;
+	private JLabel lblCarrera;
 
 	/**
 	 * Create the panel.
@@ -35,16 +43,52 @@ public class ViewRegistrarPosicion extends JPanel {
 		this.controller = new Controller(this.ventanaPrincipal);
 		
 		panelSur = new JPanel();
+		panelSur.setBackground(Color.WHITE);
 		panelSur.setLayout(new FlowLayout());
+		
+		lblCalle = new JLabel("Calle");
+		panelSur.add(lblCalle);
+		
+		txtCalle = new JTextField();
+		panelSur.add(txtCalle);
+		txtCalle.setColumns(3);
+		
+		lblCarrera = new JLabel("Carrera");
+		panelSur.add(lblCarrera);
+		
+		txtCarrera = new JTextField();
+		panelSur.add(txtCarrera);
+		txtCarrera.setColumns(3);
+		
 		btnRegistrar = new JButton("Registrar");
-		btnActualizar = new JButton("Actualizar");
-		btnActualizar.addActionListener(this.controller.getRegistrarPosicion());
 		panelSur.add(btnRegistrar);
+		btnRegistrar.addActionListener(this.controller.getRegistrarPosicion());
+		btnRegistrar.setBackground(Color.DARK_GRAY);
+		btnRegistrar.setOpaque(true);
+		btnRegistrar.setBorderPainted(false);
+		btnRegistrar.setForeground(Color.WHITE);
+		
+		btnActualizar = new JButton("Actualizar");
 		panelSur.add(btnActualizar);
+		btnActualizar.addActionListener(this.controller.getRegistrarPosicion());
+		btnActualizar.setBackground(Color.DARK_GRAY);
+		btnActualizar.setOpaque(true);
+		btnActualizar.setBorderPainted(false);
+		btnActualizar.setForeground(Color.WHITE);
+		
+		
+		
 		add(panelSur, BorderLayout.SOUTH);
 		modelAmbulancias = new DefaultTableModel(contAmbulancias, lablesAmbulancia);
 		table = new JTable(modelAmbulancias);
 		add(new JScrollPane(table), BorderLayout.CENTER);
+	}
+	//Esta función fue desarrollada en compania de Juan Pablo Penaloza
+	public int getSelectedRowCode () {
+		int numRow = table.getSelectedRow();
+		String tempCode = (String) table.getValueAt(numRow, 0);
+		int code = Integer.parseInt(tempCode);
+		return code;
 	}
 	
 	public void updateAmbulanciaModel (Object nuevoCont [][]) {
@@ -119,6 +163,22 @@ public class ViewRegistrarPosicion extends JPanel {
 
 	public void setContAmbulancias(String[][] contAmbulancias) {
 		this.contAmbulancias = contAmbulancias;
+	}
+
+	public JTextField getTxtCalle() {
+		return txtCalle;
+	}
+
+	public void setTxtCalle(JTextField txtCalle) {
+		this.txtCalle = txtCalle;
+	}
+
+	public JTextField getTxtCarrera() {
+		return txtCarrera;
+	}
+
+	public void setTxtCarrera(JTextField txtCarrera) {
+		this.txtCarrera = txtCarrera;
 	}
 	
 

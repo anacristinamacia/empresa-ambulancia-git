@@ -39,6 +39,7 @@ public class ViewAmbulancias extends JPanel {
 		
 		viewRegistrarPosicion = new ViewRegistrarPosicion(ventanaPrincipal);
 		tabbedPane.addTab("Registrar Posición", null, viewRegistrarPosicion, null);
+		tabbedPane.setEnabledAt(1, false);
 	}
 
 	public JPanel getContentPane() {
