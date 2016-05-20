@@ -25,6 +25,7 @@ public class RegistrarServicio implements ActionListener{
 		// TODO Auto-generated method stub
 		if (e.getActionCommand().equals("Aceptar")) {
 			registrarServicio();
+			ventanaPrincipal.getController().getReporteServicios().actualizarContServicios();
 		}
 	}
 	

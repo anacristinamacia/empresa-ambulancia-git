@@ -13,6 +13,7 @@ public class Controller {
 	private RegistrarServicio registrarServicio;
 	private MenuServiciosListener menuServicios;
 	private FinalizarServicioListener finalizarServicio;
+	private ReporteServiciosListener reporteServicios;
 	
 	
 	public FinalizarServicioListener getFinalizarServicio() {
@@ -71,6 +72,12 @@ public class Controller {
 		this.registrarServicio = registrarServicio;
 	}
 	
+	public ReporteServiciosListener getReporteServicios() {
+		return reporteServicios;
+	}
+	public void setReporteServicios(ReporteServiciosListener reporteServicios) {
+		this.reporteServicios = reporteServicios;
+	}
 	public Controller(TestGUIAmbulancias ventanaPrincipal) {
 		super();
 		this.ventanaPrincipal = ventanaPrincipal;
@@ -82,6 +89,7 @@ public class Controller {
 		this.registrarServicio = new RegistrarServicio(ventanaPrincipal);
 		this.menuServicios = new MenuServiciosListener(ventanaPrincipal);
 		this.finalizarServicio = new FinalizarServicioListener(ventanaPrincipal);
+		this.reporteServicios = new ReporteServiciosListener(ventanaPrincipal);
 	}
 	
 	

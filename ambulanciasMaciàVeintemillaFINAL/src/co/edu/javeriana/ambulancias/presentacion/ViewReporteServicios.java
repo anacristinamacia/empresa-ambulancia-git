@@ -81,6 +81,28 @@ public class ViewReporteServicios extends JPanel {
 
 	}
 	
+	public int getSelectedRowCodeServicio () {
+		int numRow = tableServicios.getSelectedRow();
+		String tempCode = (String) tableServicios.getValueAt(numRow, 0);
+		int code = Integer.parseInt(tempCode);
+		return code;
+	}
+	
+	public void addRowToTableIPS (Object newCont [][]) {
+		DefaultTableModel modelTemp = new DefaultTableModel(newCont,tableLabelsIPS);
+		tableIPS.setModel(modelTemp);
+	}
+	
+	public void addRowToTableAmbulancias (Object newCont [][]) {
+		DefaultTableModel modelTemp = new DefaultTableModel(newCont,tableLabelsAmbulancia);
+		tableAmbulancias.setModel(modelTemp);
+	}
+	
+	public void addRowToTableServicios (Object newCont [][]) {
+		DefaultTableModel modelTemp = new DefaultTableModel(newCont,tableLabelsServicios);
+		tableServicios.setModel(modelTemp);
+	}
+	
 	public void setTableServiciosView () {
 		
 		JLabel tittle = new JLabel("Servicios");
@@ -116,14 +138,14 @@ public class ViewReporteServicios extends JPanel {
 	}
 	
 	public void setTittleView () {
-		panelCenter.setLayout(new MigLayout("", "[562px]", "[27px][27px][27px][27px][27px][27px][27px][27px]"));
+		panelCenter.setLayout(new MigLayout("", "[562px]", "[27px][27px][100px][27px][27][100px][27px][100px]"));
 		JLabel tittle = new JLabel("Reporte De Servicios con IPS y Ambulancias Asignados");
 		panelCenter.add(tittle, "cell 0 0,grow");
 	}
 	
 	public void setBtnMostrarView () {
 		btnMostrar = new JButton("Mostrar");
-		
+		btnMostrar.addActionListener(controller.getReporteServicios());
 		panelCenter.add(btnMostrar, "cell 0 3,grow");
 		
 	}
