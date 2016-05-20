@@ -14,8 +14,15 @@ public class Controller {
 	private MenuServiciosListener menuServicios;
 	private FinalizarServicioListener finalizarServicio;
 	private ReporteServiciosListener reporteServicios;
+	private AsignarServicioListener asignarServicio;
 	
 	
+	public AsignarServicioListener getAsignarServicio() {
+		return asignarServicio;
+	}
+	public void setAsignarServicio(AsignarServicioListener asignarServicio) {
+		this.asignarServicio = asignarServicio;
+	}
 	public FinalizarServicioListener getFinalizarServicio() {
 		return finalizarServicio;
 	}
