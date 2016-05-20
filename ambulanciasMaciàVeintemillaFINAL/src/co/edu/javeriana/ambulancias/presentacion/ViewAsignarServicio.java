@@ -46,11 +46,14 @@ public class ViewAsignarServicio extends JPanel {
 	private JLabel lblTabla2;
 	private JLabel lblTabla3;
 	
+	private TestGUIAmbulancias ventanaPrincipal;
+	private Controller controller;
+	
 	/**
 	 * Create the panel.
 	 */
 	public ViewAsignarServicio() {
-		setLayout(new GridLayout(8, 1));
+		setLayout(new GridLayout(9, 1));
 		
 		titulo = new JLabel("Asignar un Servicio");
 		titulo.setHorizontalAlignment(JLabel.CENTER);

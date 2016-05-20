@@ -42,7 +42,6 @@ public class TestGUIAmbulancias extends JFrame {
 				try {
 					TestGUIAmbulancias frame = new TestGUIAmbulancias();
 					frame.setVisible(true);
-					System.out.println("Hello");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -117,7 +116,7 @@ public class TestGUIAmbulancias extends JFrame {
 		controller = new Controller(this);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 634, 607);
+		setBounds(100, 100, 678, 606);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -135,7 +134,7 @@ public class TestGUIAmbulancias extends JFrame {
 		viewIPS = new ViewIPS(this);
 		tabbedPane.addTab("IPS", new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/redcross.png"), viewIPS, null);
 		
-		viewServicios = new ViewServicios();
+		viewServicios = new ViewServicios(this);
 		tabbedPane.addTab("Servicios", new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/sign-in.png"), viewServicios, null);
 		
 		

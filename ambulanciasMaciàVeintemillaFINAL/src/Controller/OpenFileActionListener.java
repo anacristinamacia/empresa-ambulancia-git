@@ -17,7 +17,6 @@ public class OpenFileActionListener implements ActionListener{
 	private TestGUIAmbulancias ventanaPrincipal;
 	
 	public OpenFileActionListener(TestGUIAmbulancias ventanaPrincipal) {
-		super();
 		this.ventanaPrincipal = ventanaPrincipal;
 	}
 	

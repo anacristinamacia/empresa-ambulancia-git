@@ -21,7 +21,7 @@ public class ViewServicios extends JPanel {
 	private ViewFinalizarServicio viewFinalizarServicio;
 	private ViewAsignarServicio viewAsignarServicio;
 	private ViewReporteServicios viewReporteServicios;
-	
+	private TestGUIAmbulancias ventanaPrincipal;
 	
 	
 	public JTabbedPane getTabbedPane() {
@@ -99,7 +99,8 @@ public class ViewServicios extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public ViewServicios() {
+	public ViewServicios(TestGUIAmbulancias ventanaPrincipal) {
+		
 		
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout(0, 0));
@@ -107,17 +108,19 @@ public class ViewServicios extends JPanel {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		add(tabbedPane, BorderLayout.NORTH);
 		
-		ViewMenuServicios viewMenuServicios = new ViewMenuServicios();
+		ViewMenuServicios viewMenuServicios = new ViewMenuServicios(this.ventanaPrincipal);
 		tabbedPane.addTab("Menú Servicios", null, viewMenuServicios, null);
 		
-		ViewRegistrarServicio viewRegistrarServicio = new ViewRegistrarServicio();
+		ViewRegistrarServicio viewRegistrarServicio = new ViewRegistrarServicio(this.ventanaPrincipal);
 		tabbedPane.addTab("Registrar Servicio", null, viewRegistrarServicio, null);
-		tabbedPane.setEnabledAt(1, false);
-		
-			ViewAsignarServicio viewAsignarServicio_1 = new ViewAsignarServicio();
-			tabbedPane.addTab("Asignar Servicio", null, viewAsignarServicio_1, null);
-			tabbedPane.setEnabledAt(2, true);
-		
+	
+		tabbedPane.setEnabledAt(1, true);
+
+		ViewAsignarServicio viewAsignarServicio = new ViewAsignarServicio();
+		tabbedPane.addTab("Asignar Servicio", null, viewAsignarServicio, null);
+		tabbedPane.setEnabledAt(2, false);
+
+
 		ViewFinalizarServicio viewFinalizarServicio = new ViewFinalizarServicio();
 		tabbedPane.addTab("Finalizar Servicio", null, viewFinalizarServicio, null);
 		tabbedPane.setEnabledAt(3, false);
