@@ -53,7 +53,7 @@ public class RegistarPosicionListener implements ActionListener {
 			carrera = Integer.parseInt(ventanaPrincipal.getViewAmbulancias().getViewRegistrarPosicion().getTxtCarrera().getText());
 			
 		} catch (Exception e){
-			JOptionPane.showMessageDialog(ventanaPrincipal, "Ingrese valores numéricos.", "ERROR",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog (ventanaPrincipal, "Ingrese valores numéricos.", "ERROR",JOptionPane.ERROR_MESSAGE);
 		}
 		ventanaPrincipal.getEmpresaAmbulancias().registrarPosicionAmbulancia(codigo, fechaActual, calle, carrera);
 		actualizarAmbulancias();

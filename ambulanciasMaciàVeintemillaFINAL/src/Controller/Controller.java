@@ -10,9 +10,16 @@ public class Controller {
 	private OpenFileActionListener openFile;
 	private RegistarPosicionListener registrarPosicion;
 	private MenuAmbulanciasListener menuAmbulancias;
+	private RegistrarServicio registrarServicio;
+	private MenuServiciosListener menuServicios;
 	
 	
-	
+	public MenuServiciosListener getMenuServicios() {
+		return menuServicios;
+	}
+	public void setMenuServicios(MenuServiciosListener menuServicios) {
+		this.menuServicios = menuServicios;
+	}
 	public MenuAmbulanciasListener getMenuAmbulancias() {
 		return menuAmbulancias;
 	}
@@ -44,14 +51,19 @@ public class Controller {
 	public void setOpenFile(OpenFileActionListener openFile) {
 		this.openFile = openFile;
 	}
-	
-	
 	public RegistarPosicionListener getRegistrarPosicion() {
 		return registrarPosicion;
 	}
 	public void setRegistrarPosicion(RegistarPosicionListener registrarPosicion) {
 		this.registrarPosicion = registrarPosicion;
 	}
+	public RegistrarServicio getRegistrarServicio() {
+		return registrarServicio;
+	}
+	public void setRegistrarServicio(RegistrarServicio registrarServicio) {
+		this.registrarServicio = registrarServicio;
+	}
+	
 	public Controller(TestGUIAmbulancias ventanaPrincipal) {
 		super();
 		this.ventanaPrincipal = ventanaPrincipal;
@@ -60,6 +72,8 @@ public class Controller {
 		this.openFile = new OpenFileActionListener(ventanaPrincipal);
 		this.registrarPosicion = new RegistarPosicionListener(ventanaPrincipal);
 		this.menuAmbulancias = new MenuAmbulanciasListener(ventanaPrincipal);
+		this.registrarServicio = new RegistrarServicio(ventanaPrincipal);
+		this.menuServicios = new MenuServiciosListener(ventanaPrincipal);
 	}
 	
 	
