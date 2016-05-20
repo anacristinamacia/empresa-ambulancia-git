@@ -899,6 +899,34 @@ public class EmpresaAmbulancias implements IServiciosAmbulancias, Serializable{
 		
 		return table;
 	}
-
+	public String [][] getModelIPS () {
+		ArrayList < ArrayList <String> > tableIPS = new ArrayList< ArrayList <String> >();
+		
+		TreeSet<String> keys = new TreeSet<String>(losIPS.keySet());
+		
+		for (String key : keys) {
+			IPS ips = losIPS.get(key);
+			ArrayList<String> tempArray = new ArrayList<String>();
+			tempArray.add(key);
+			tempArray.add(losIPS.get(key).getTipoAtencion());
+			String tipoDireccion;
+			if(losIPS.get(key).getDireccion().getTipoDireccion() == losIPS.get(key).getDireccion().getTipoDireccion().CALLE){
+				tipoDireccion = "CALLE";
+			}else{
+				
+			}
+			tempArray.add( + losIPS.get(key).getDireccion().getCalle() + "#" + losIPS.get(key).getDireccion().getCarrera() + " - " +losIPS.get(key).getDireccion().getNumero());
+		}
+		String[][] table = new String[tableIPS.size()][];
+		int cont = 0;
+		for (int i = tableIPS.size() - 1; i >= 0; i--) {
+		    ArrayList<String> row = tableIPS.get(i);
+		    table[cont++] = row.toArray(new String[row.size()]);
+		} 
+		
+		return table;
+		 
+	}
+	
 	
 }
