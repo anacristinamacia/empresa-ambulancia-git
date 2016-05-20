@@ -20,6 +20,7 @@ public class MenuAmbulanciasListener implements ActionListener{
 		if (e.getActionCommand().equals("Registrar Posicion")) {
 			ventanaPrincipal.getViewAmbulancias().getTabbedPane().setSelectedIndex(1);
 		}
+	
 	}
 	
 	

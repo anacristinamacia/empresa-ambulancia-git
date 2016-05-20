@@ -94,6 +94,18 @@ public class ViewServicios extends JPanel {
 		this.viewReporteServicios = viewReporteServicios;
 	}
 
+	
+
+	public TestGUIAmbulancias getVentanaPrincipal() {
+		return ventanaPrincipal;
+	}
+
+
+
+	public void setVentanaPrincipal(TestGUIAmbulancias ventanaPrincipal) {
+		this.ventanaPrincipal = ventanaPrincipal;
+	}
+
 
 
 	/**
@@ -105,30 +117,33 @@ public class ViewServicios extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout(0, 0));
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		this.ventanaPrincipal = ventanaPrincipal;
+		
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		add(tabbedPane, BorderLayout.NORTH);
 		
-		ViewMenuServicios viewMenuServicios = new ViewMenuServicios(this.ventanaPrincipal);
-		tabbedPane.addTab("MenÃº Servicios", null, viewMenuServicios, null);
+		viewMenuServicios = new ViewMenuServicios(ventanaPrincipal);
+		tabbedPane.addTab("Menú Servicios", null, viewMenuServicios, null);
 		
-		ViewRegistrarServicio viewRegistrarServicio = new ViewRegistrarServicio(this.ventanaPrincipal);
-		tabbedPane.addTab("Registrar Servicio", null, viewRegistrarServicio, null);
-	
+		viewRegistrarServicios = new ViewRegistrarServicio(ventanaPrincipal);
+		
+		tabbedPane.addTab("Registrar Servicio", null, viewRegistrarServicios, null);
 		tabbedPane.setEnabledAt(1, true);
+		
 
-		ViewAsignarServicio viewAsignarServicio = new ViewAsignarServicio();
+		viewAsignarServicio = new ViewAsignarServicio();
 		tabbedPane.addTab("Asignar Servicio", null, viewAsignarServicio, null);
 		tabbedPane.setEnabledAt(2, false);
 
-
-		ViewFinalizarServicio viewFinalizarServicio = new ViewFinalizarServicio();
+		viewFinalizarServicio = new ViewFinalizarServicio();
 		tabbedPane.addTab("Finalizar Servicio", null, viewFinalizarServicio, null);
 		tabbedPane.setEnabledAt(3, false);
 				
-		ViewReporteServicios viewReporteServicios = new ViewReporteServicios();
+		viewReporteServicios = new ViewReporteServicios();
 		tabbedPane.addTab("Reporte", null, viewReporteServicios, null);
 		tabbedPane.setEnabledAt(4, false);
 
 	}
 
 }
+
