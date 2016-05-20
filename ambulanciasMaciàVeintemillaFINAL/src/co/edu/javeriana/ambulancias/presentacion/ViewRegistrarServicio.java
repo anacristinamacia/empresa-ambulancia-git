@@ -83,6 +83,7 @@ public class ViewRegistrarServicio extends JPanel {
 		btnAceptar.setOpaque(true);
 		btnAceptar.setBorderPainted(false);
 		btnAceptar.setForeground(Color.WHITE);
+		btnAceptar.addActionListener(this.controller.getRegistrarServicio());
 		panel_3.add(btnAceptar);
 		
 		panel_4 = new JPanel();

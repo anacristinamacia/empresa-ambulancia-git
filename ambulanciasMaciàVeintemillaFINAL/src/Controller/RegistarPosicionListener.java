@@ -21,7 +21,6 @@ public class RegistarPosicionListener implements ActionListener {
 
 
 	public void actionPerformed(ActionEvent e) {
-		Object source = e.getSource();
 		
 		if (e.getActionCommand().equals("Actualizar")) {
 			actualizarAmbulancias();	
