@@ -9,7 +9,16 @@ public class Controller {
 	private NegocioActionListener negocio;
 	private OpenFileActionListener openFile;
 	private RegistarPosicionListener registrarPosicion;
+	private MenuAmbulanciasListener menuAmbulancias;
 	
+	
+	
+	public MenuAmbulanciasListener getMenuAmbulancias() {
+		return menuAmbulancias;
+	}
+	public void setMenuAmbulancias(MenuAmbulanciasListener menuAmbulancias) {
+		this.menuAmbulancias = menuAmbulancias;
+	}
 	public TestGUIAmbulancias getVentanaPrincipal() {
 		return ventanaPrincipal;
 	}
@@ -47,11 +56,10 @@ public class Controller {
 		super();
 		this.ventanaPrincipal = ventanaPrincipal;
 		this.negocio = new NegocioActionListener(ventanaPrincipal);
-		System.out.println("negocioo");
 		this.movePanel = new MovePanelActionListener(ventanaPrincipal);
 		this.openFile = new OpenFileActionListener(ventanaPrincipal);
 		this.registrarPosicion = new RegistarPosicionListener(ventanaPrincipal);
-		System.out.println("controller creado");
+		this.menuAmbulancias = new MenuAmbulanciasListener(ventanaPrincipal);
 	}
 	
 	

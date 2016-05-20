@@ -201,13 +201,14 @@ public class ViewMenuAmbulancias extends JPanel {
 		btnIngresarAmbulancias.addActionListener(this.controller.getOpenFile());
 		panel_4.add(btnIngresarAmbulancias);
 		
-		btnRegistrarPosicion = new JButton("Registrar Posición");
+		btnRegistrarPosicion = new JButton("Registrar Posicion");
 		btnRegistrarPosicion.setForeground(Color.WHITE);
 		btnRegistrarPosicion.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		btnRegistrarPosicion.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/marker-2---add.png"));
 		btnRegistrarPosicion.setBackground(Color.DARK_GRAY);
 		btnRegistrarPosicion.setOpaque(true);
 		btnRegistrarPosicion.setBorderPainted(false);
+		btnRegistrarPosicion.addActionListener(this.controller.getMenuAmbulancias());
 		panel_4.add(btnRegistrarPosicion);
 		
 		btnReporteAmbulancias = new JButton("Reporte de Ambulancias");
