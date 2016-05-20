@@ -22,7 +22,7 @@ import javax.swing.JScrollPane;
 
 public class ViewAsignarServicio extends JPanel {
 	
-	private JTable tablaIPS;
+	/*private JTable tablaIPS;
 	private JTable tablaAmbulancias;
 	private JTable tablaServicios;
 	
@@ -47,13 +47,13 @@ public class ViewAsignarServicio extends JPanel {
 	private JLabel lblTabla3;
 	
 	private TestGUIAmbulancias ventanaPrincipal;
-	private Controller controller;
+	private Controller controller;*/
 	
 	/**
 	 * Create the panel.
 	 */
 	public ViewAsignarServicio() {
-		setLayout(new GridLayout(9, 1));
+		/*setLayout(new GridLayout(9, 1));
 		
 		titulo = new JLabel("Asignar un Servicio");
 		titulo.setHorizontalAlignment(JLabel.CENTER);
@@ -82,13 +82,13 @@ public class ViewAsignarServicio extends JPanel {
 		
 		btnAsignar = new JButton("Asignar");
 		btnAsignar.setHorizontalAlignment(JButton.CENTER);
-		add(btnAsignar);
+		add(btnAsignar);*/
 	}
 
 
 
 
-	public JLabel getTitulo() {
+	/*public JLabel getTitulo() {
 		return titulo;
 	}
 
@@ -321,7 +321,7 @@ public class ViewAsignarServicio extends JPanel {
 
 	public void setBtnAsignar(JButton btnAsignar) {
 		this.btnAsignar = btnAsignar;
-	}
+	}*/
 	
 	
 	

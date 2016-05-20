@@ -123,7 +123,7 @@ public class ViewServicios extends JPanel {
 		add(tabbedPane, BorderLayout.NORTH);
 		
 		viewMenuServicios = new ViewMenuServicios(ventanaPrincipal);
-		tabbedPane.addTab("Menú Servicios", null, viewMenuServicios, null);
+		tabbedPane.addTab("Menu Servicios", null, viewMenuServicios, null);
 		
 		viewRegistrarServicios = new ViewRegistrarServicio(ventanaPrincipal);
 		
