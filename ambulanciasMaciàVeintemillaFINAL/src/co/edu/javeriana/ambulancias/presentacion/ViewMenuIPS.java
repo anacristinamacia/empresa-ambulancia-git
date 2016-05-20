@@ -115,11 +115,11 @@ public class ViewMenuIPS extends JPanel {
 		txtrMenIps.setEditable(false);
 		txtrMenIps.setForeground(new Color(0, 0, 128));
 		txtrMenIps.setFont(new Font("Lucida Grande", Font.PLAIN, 19));
-		txtrMenIps.setText("                MENÚ IPS");
+		txtrMenIps.setText("              MENU IPS");
 		panel_4.add(txtrMenIps);
 		
 		btnIngresarIps = new JButton("Ingresar IPS ");
-		btnIngresarIps.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Health_care_medicine2.png"));
+		btnIngresarIps.setIcon(new ImageIcon(ViewMenuIPS.class.getResource("/Iconos/Health_care_medicine2.png")));
 		btnIngresarIps.setForeground(Color.WHITE);
 		btnIngresarIps.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		btnIngresarIps.setBackground(Color.DARK_GRAY);
@@ -129,7 +129,7 @@ public class ViewMenuIPS extends JPanel {
 		panel_4.add(btnIngresarIps);
 		
 		btnReporteIpsCon = new JButton("Reporte IPS con Servicios");
-		btnReporteIpsCon.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Report.png"));
+		btnReporteIpsCon.setIcon(new ImageIcon(ViewMenuIPS.class.getResource("/Iconos/Report.png")));
 		btnReporteIpsCon.setForeground(Color.WHITE);
 		btnReporteIpsCon.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		btnReporteIpsCon.setBackground(Color.DARK_GRAY);

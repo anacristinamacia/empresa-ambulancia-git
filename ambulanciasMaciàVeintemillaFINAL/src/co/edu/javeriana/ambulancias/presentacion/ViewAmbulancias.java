@@ -35,11 +35,10 @@ public class ViewAmbulancias extends JPanel {
 		add(tabbedPane, BorderLayout.NORTH);
 		
 		viewMenuAmbulancias = new ViewMenuAmbulancias(this.ventanaPrincipal);
-		tabbedPane.addTab("Menú Ambulancias", null, viewMenuAmbulancias, null);
+		tabbedPane.addTab("Menú Ambulancias", new ImageIcon(ViewAmbulancias.class.getResource("/Iconos/Men£Ambulancia.png")), viewMenuAmbulancias, null);
 		
 		viewRegistrarPosicion = new ViewRegistrarPosicion(ventanaPrincipal);
-		tabbedPane.addTab("Registrar Posición", null, viewRegistrarPosicion, null);
-		tabbedPane.setEnabledAt(1, false);
+		tabbedPane.addTab("Registrar Posición", new ImageIcon(ViewAmbulancias.class.getResource("/Iconos/Localizaci¢n.png")), viewRegistrarPosicion, null);
 	}
 
 	public JPanel getContentPane() {

@@ -123,24 +123,24 @@ public class ViewServicios extends JPanel {
 		add(tabbedPane, BorderLayout.NORTH);
 		
 		viewMenuServicios = new ViewMenuServicios(ventanaPrincipal);
-		tabbedPane.addTab("Menu Servicios", null, viewMenuServicios, null);
+		tabbedPane.addTab("Menu Servicios", new ImageIcon(ViewServicios.class.getResource("/Iconos/Men£Serv.png")), viewMenuServicios, null);
 		
 		viewRegistrarServicios = new ViewRegistrarServicio(ventanaPrincipal);
 		
-		tabbedPane.addTab("Registrar Servicio", null, viewRegistrarServicios, null);
+		tabbedPane.addTab("Registrar Servicio", new ImageIcon(ViewServicios.class.getResource("/Iconos/Create.png")), viewRegistrarServicios, null);
 		tabbedPane.setEnabledAt(1, true);
 		
 
 		viewAsignarServicio = new ViewAsignarServicio(ventanaPrincipal);
-		tabbedPane.addTab("Asignar Servicio", null, viewAsignarServicio, null);
+		tabbedPane.addTab("Asignar Servicio", new ImageIcon(ViewServicios.class.getResource("/Iconos/Asignar0.png")), viewAsignarServicio, null);
 		tabbedPane.setEnabledAt(2, true);
 
 		viewFinalizarServicio = new ViewFinalizarServicio(ventanaPrincipal);
-		tabbedPane.addTab("Finalizar Servicio", null, viewFinalizarServicio, null);
+		tabbedPane.addTab("Finalizar Servicio", new ImageIcon(ViewServicios.class.getResource("/Iconos/Finalizar.png")), viewFinalizarServicio, null);
 		tabbedPane.setEnabledAt(3, true);
 				
 		viewReporteServicios = new ViewReporteServicios(ventanaPrincipal);
-		tabbedPane.addTab("Reporte", null, viewReporteServicios, null);
+		tabbedPane.addTab("Reporte", new ImageIcon(ViewServicios.class.getResource("/Iconos/Report.png")), viewReporteServicios, null);
 		tabbedPane.setEnabledAt(4, true);
 
 	}

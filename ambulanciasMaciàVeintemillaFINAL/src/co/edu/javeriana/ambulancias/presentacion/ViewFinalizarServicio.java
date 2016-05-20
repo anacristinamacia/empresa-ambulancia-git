@@ -15,6 +15,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class ViewFinalizarServicio extends JPanel {
 
@@ -53,6 +54,7 @@ public class ViewFinalizarServicio extends JPanel {
 		add(panel, BorderLayout.SOUTH);
 		
 		btnFinalizar = new JButton("Finalizar");
+		btnFinalizar.setIcon(new ImageIcon(ViewFinalizarServicio.class.getResource("/Iconos/Finalizar.png")));
 		btnFinalizar.setBackground(Color.DARK_GRAY);
 		btnFinalizar.setOpaque(true);
 		btnFinalizar.setBorderPainted(false);

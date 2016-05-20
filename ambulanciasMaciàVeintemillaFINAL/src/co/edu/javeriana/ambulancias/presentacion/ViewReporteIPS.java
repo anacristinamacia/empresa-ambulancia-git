@@ -15,6 +15,7 @@ import java.util.Set;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 
 public class ViewReporteIPS extends JPanel {
 
@@ -50,6 +51,7 @@ public class ViewReporteIPS extends JPanel {
 		panel_1.add(comboBoxIPS);
 		
 		btnMostrarReporte = new JButton("Mostrar Reporte");
+		btnMostrarReporte.setIcon(new ImageIcon(ViewReporteIPS.class.getResource("/Iconos/Report.png")));
 		btnMostrarReporte.setBackground(Color.DARK_GRAY);
 		btnMostrarReporte.setOpaque(true);
 		btnMostrarReporte.setBorderPainted(false);

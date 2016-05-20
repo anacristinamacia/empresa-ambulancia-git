@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class ViewRegistrarServicio extends JPanel {
 	private JTextField textPaciente;
@@ -58,13 +59,13 @@ public class ViewRegistrarServicio extends JPanel {
 		
 		panel_1 = new JPanel();
 		FlowLayout flowLayout_2 = (FlowLayout) panel_1.getLayout();
-		flowLayout_2.setVgap(20);
+		flowLayout_2.setVgap(15);
 		panel_1.setBackground(Color.WHITE);
 		add(panel_1, BorderLayout.NORTH);
 		
 		lblNuevoServicio = new JLabel("NUEVO SERVICIO");
 		lblNuevoServicio.setForeground(new Color(0, 0, 128));
-		lblNuevoServicio.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		lblNuevoServicio.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		panel_1.add(lblNuevoServicio);
 		
 		panel_2 = new JPanel();
@@ -79,6 +80,7 @@ public class ViewRegistrarServicio extends JPanel {
 		add(panel_3, BorderLayout.SOUTH);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setIcon(new ImageIcon(ViewRegistrarServicio.class.getResource("/Iconos/Create.png")));
 		btnAceptar.setBackground(Color.DARK_GRAY);
 		btnAceptar.setOpaque(true);
 		btnAceptar.setBorderPainted(false);
@@ -92,6 +94,7 @@ public class ViewRegistrarServicio extends JPanel {
 		panel_4.setLayout(new GridLayout(7, 1, 0, 0));
 		
 		lblPaciente = new JLabel("Paciente");
+		lblPaciente.setIcon(new ImageIcon(ViewRegistrarServicio.class.getResource("/Iconos/Patient_invalid_hospital_woman2.png")));
 		lblPaciente.setForeground(Color.DARK_GRAY);
 		panel_4.add(lblPaciente);
 		
@@ -100,6 +103,7 @@ public class ViewRegistrarServicio extends JPanel {
 		textPaciente.setColumns(10);
 		
 		lblTipoServicio = new JLabel("Tipo Servicio");
+		lblTipoServicio.setIcon(new ImageIcon(ViewRegistrarServicio.class.getResource("/Iconos/Physician_head_doctor_MD_woman2.png")));
 		lblTipoServicio.setForeground(Color.DARK_GRAY);
 		panel_4.add(lblTipoServicio);
 		
@@ -112,6 +116,7 @@ public class ViewRegistrarServicio extends JPanel {
 		panel_4.add(comboBoxTipoServ);
 		
 		lblTelefono = new JLabel("Telefono");
+		lblTelefono.setIcon(new ImageIcon(ViewRegistrarServicio.class.getResource("/Iconos/Telephone.png")));
 		lblTelefono.setForeground(Color.DARK_GRAY);
 		panel_4.add(lblTelefono);
 		
@@ -120,6 +125,7 @@ public class ViewRegistrarServicio extends JPanel {
 		textTelefono.setColumns(10);
 		
 		lblTipoDireccion = new JLabel("Tipo Direccion");
+		lblTipoDireccion.setIcon(new ImageIcon(ViewRegistrarServicio.class.getResource("/Iconos/Localizaci¢n.png")));
 		lblTipoDireccion.setForeground(Color.DARK_GRAY);
 		panel_4.add(lblTipoDireccion);
 		
@@ -130,6 +136,7 @@ public class ViewRegistrarServicio extends JPanel {
 		panel_4.add(comboBoxTipoDirec);
 		
 		lblCalle = new JLabel("Calle");
+		lblCalle.setIcon(new ImageIcon(ViewRegistrarServicio.class.getResource("/Iconos/Posici¢n.png")));
 		lblCalle.setForeground(Color.DARK_GRAY);
 		panel_4.add(lblCalle);
 		
@@ -138,6 +145,7 @@ public class ViewRegistrarServicio extends JPanel {
 		textCalle.setColumns(10);
 		
 		lblCarrera = new JLabel("Carrera");
+		lblCarrera.setIcon(new ImageIcon(ViewRegistrarServicio.class.getResource("/Iconos/Posici¢n.png")));
 		lblCarrera.setForeground(Color.DARK_GRAY);
 		panel_4.add(lblCarrera);
 		
@@ -146,6 +154,7 @@ public class ViewRegistrarServicio extends JPanel {
 		textCarrera.setColumns(10);
 		
 		lblNumero = new JLabel("Numero");
+		lblNumero.setIcon(new ImageIcon(ViewRegistrarServicio.class.getResource("/Iconos/Posici¢n.png")));
 		lblNumero.setForeground(Color.DARK_GRAY);
 		panel_4.add(lblNumero);
 		

@@ -193,7 +193,7 @@ public class ViewMenuAmbulancias extends JPanel {
 		
 		btnIngresarAmbulancias = new JButton("Ingresar Ambulancias");
 		btnIngresarAmbulancias.setForeground(Color.WHITE);
-		btnIngresarAmbulancias.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/AmbulancePeq.png"));
+		btnIngresarAmbulancias.setIcon(new ImageIcon(ViewMenuAmbulancias.class.getResource("/Iconos/AmbulancePeq.png")));
 		btnIngresarAmbulancias.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		btnIngresarAmbulancias.setBackground(Color.DARK_GRAY);
 		btnIngresarAmbulancias.setOpaque(true);
@@ -204,7 +204,7 @@ public class ViewMenuAmbulancias extends JPanel {
 		btnRegistrarPosicion = new JButton("Registrar Posicion");
 		btnRegistrarPosicion.setForeground(Color.WHITE);
 		btnRegistrarPosicion.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		btnRegistrarPosicion.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/marker-2---add.png"));
+		btnRegistrarPosicion.setIcon(new ImageIcon(ViewMenuAmbulancias.class.getResource("/Iconos/marker-2---add.png")));
 		btnRegistrarPosicion.setBackground(Color.DARK_GRAY);
 		btnRegistrarPosicion.setOpaque(true);
 		btnRegistrarPosicion.setBorderPainted(false);
@@ -214,7 +214,7 @@ public class ViewMenuAmbulancias extends JPanel {
 		btnReporteAmbulancias = new JButton("Reporte de Ambulancias");
 		btnReporteAmbulancias.setForeground(Color.WHITE);
 		btnReporteAmbulancias.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		btnReporteAmbulancias.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Report.png"));
+		btnReporteAmbulancias.setIcon(new ImageIcon(ViewMenuAmbulancias.class.getResource("/Iconos/Report.png")));
 		btnReporteAmbulancias.setBackground(Color.DARK_GRAY);
 		btnReporteAmbulancias.setOpaque(true);
 		btnReporteAmbulancias.setBorderPainted(false);
@@ -223,7 +223,7 @@ public class ViewMenuAmbulancias extends JPanel {
 		btnEstadisticas = new JButton(" Ambulancias disponibles");
 		btnEstadisticas.setForeground(Color.WHITE);
 		btnEstadisticas.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		btnEstadisticas.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Statistics.png"));
+		btnEstadisticas.setIcon(new ImageIcon(ViewMenuAmbulancias.class.getResource("/Iconos/Statistics.png")));
 		btnEstadisticas.setBackground(Color.DARK_GRAY);
 		btnEstadisticas.setOpaque(true);
 		btnEstadisticas.setBorderPainted(false);

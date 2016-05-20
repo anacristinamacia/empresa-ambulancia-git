@@ -17,6 +17,7 @@ import java.awt.GridLayout;
 import javax.swing.JTextArea;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class ViewRegistrarPosicion extends JPanel {
 	private JTable table;
@@ -47,6 +48,7 @@ public class ViewRegistrarPosicion extends JPanel {
 		panelSur.setLayout(new FlowLayout());
 		
 		lblCalle = new JLabel("Calle");
+		lblCalle.setIcon(new ImageIcon(ViewRegistrarPosicion.class.getResource("/Iconos/Posici¢n.png")));
 		panelSur.add(lblCalle);
 		
 		txtCalle = new JTextField();
@@ -54,6 +56,7 @@ public class ViewRegistrarPosicion extends JPanel {
 		txtCalle.setColumns(3);
 		
 		lblCarrera = new JLabel("Carrera");
+		lblCarrera.setIcon(new ImageIcon(ViewRegistrarPosicion.class.getResource("/Iconos/Posici¢n.png")));
 		panelSur.add(lblCarrera);
 		
 		txtCarrera = new JTextField();
@@ -61,6 +64,7 @@ public class ViewRegistrarPosicion extends JPanel {
 		txtCarrera.setColumns(3);
 		
 		btnRegistrar = new JButton("Registrar");
+		btnRegistrar.setIcon(new ImageIcon(ViewRegistrarPosicion.class.getResource("/Iconos/Download.png")));
 		panelSur.add(btnRegistrar);
 		btnRegistrar.addActionListener(this.controller.getRegistrarPosicion());
 		btnRegistrar.setBackground(Color.DARK_GRAY);
@@ -69,6 +73,7 @@ public class ViewRegistrarPosicion extends JPanel {
 		btnRegistrar.setForeground(Color.WHITE);
 		
 		btnActualizar = new JButton("Actualizar");
+		btnActualizar.setIcon(new ImageIcon(ViewRegistrarPosicion.class.getResource("/Iconos/Actualizar.png")));
 		panelSur.add(btnActualizar);
 		btnActualizar.addActionListener(this.controller.getRegistrarPosicion());
 		btnActualizar.setBackground(Color.DARK_GRAY);

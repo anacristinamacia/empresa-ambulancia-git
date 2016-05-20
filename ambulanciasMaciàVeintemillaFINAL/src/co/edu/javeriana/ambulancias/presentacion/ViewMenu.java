@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 
 import Controller.Controller;
 import co.edu.javeriana.ambulancias.negocio.IServiciosAmbulancias;
+import javax.swing.JLabel;
 
 public class ViewMenu extends JPanel {
 
@@ -263,7 +264,7 @@ public class ViewMenu extends JPanel {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
-		flowLayout.setHgap(30);
+		flowLayout.setHgap(20);
 		add(panel, BorderLayout.WEST);
 		
 		PanelLogo panel_1 = new PanelLogo();
@@ -282,8 +283,8 @@ public class ViewMenu extends JPanel {
 		txtrBienvenidoAlAmbuber.setFont(new Font("Lucida Grande", Font.BOLD, 20));
 		panel_1.add(txtrBienvenidoAlAmbuber);
 		
-		JTextArea textArea_3 = new JTextArea();
-		panel_1.add(textArea_3);
+		JLabel lblNewLabel = new JLabel("");
+		panel_1.add(lblNewLabel);
 		
 		JTextArea txtrparaSolucionarTu = new JTextArea();
 		txtrparaSolucionarTu.setEditable(false);
@@ -299,11 +300,11 @@ public class ViewMenu extends JPanel {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.WHITE);
 		add(panel_2, BorderLayout.EAST);
-		panel_2.setLayout(new GridLayout(1, 0, 0, 0));
+		panel_2.setLayout(new GridLayout(3, 0, 30, 0));
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/ambulance2.jpg"));
-		panel_2.add(btnNewButton);
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(ViewMenu.class.getResource("/Iconos/ambulance2.jpg")));
+		panel_2.add(label);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.WHITE);
@@ -324,7 +325,7 @@ public class ViewMenu extends JPanel {
 		txtrMenPrincipal.setFont(new Font("Lucida Grande", Font.PLAIN, 19));
 		
 		JButton btnCargarDatos = new JButton("Cargar datos al Sistema");
-		btnCargarDatos.setIcon(new ImageIcon("/Users/AnaCristina/Dropbox/02. Ana Cris/Shared Cris-Mami/Iconos/Application_form.png"));
+		btnCargarDatos.setIcon(new ImageIcon(ViewMenu.class.getResource("/Iconos/Open_file.png")));
 		btnCargarDatos.setForeground(Color.WHITE);
 		btnCargarDatos.setBackground(Color.DARK_GRAY);
 		btnCargarDatos.setOpaque(true);
