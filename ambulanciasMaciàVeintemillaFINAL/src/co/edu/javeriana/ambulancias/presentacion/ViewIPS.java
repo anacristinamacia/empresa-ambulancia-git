@@ -54,10 +54,10 @@ public class ViewIPS extends JPanel {
 		add(tabbedPane, BorderLayout.NORTH);
 		
 		viewMenuIPS = new ViewMenuIPS(this.ventanaPrincipal);
-		tabbedPane.addTab("Men˙ IPS", null, viewMenuIPS, null);
+		tabbedPane.addTab("Menu IPS", null, viewMenuIPS, null);
 
 		
-		viewReporteIPS = new ViewReporteIPS();
+		viewReporteIPS = new ViewReporteIPS(this.ventanaPrincipal);
 		tabbedPane.addTab("IPS con Servicios", null, viewReporteIPS, null);
 		
 
