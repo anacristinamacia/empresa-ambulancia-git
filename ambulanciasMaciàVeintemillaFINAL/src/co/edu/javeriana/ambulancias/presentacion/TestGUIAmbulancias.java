@@ -132,7 +132,7 @@ public class TestGUIAmbulancias extends JFrame {
 		
 		viewAmbulancias = new ViewAmbulancias(this);
 		viewAmbulancias.setBackground(Color.WHITE);
-		tabbedPane.addTab("Ambulancias", new ImageIcon(TestGUIAmbulancias.class.getResource("/Iconos/Men£Ambulancia.png")), viewAmbulancias, null);
+		tabbedPane.addTab("Ambulancias", new ImageIcon(TestGUIAmbulancias.class.getResource("/Iconos/AmbulancePeq.png")), viewAmbulancias, null);
 		
 		viewIPS = new ViewIPS(this);
 		viewIPS.setBackground(Color.WHITE);
